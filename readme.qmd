@@ -3,13 +3,12 @@ title: "Modern Spatial Data Science for Archaeology"
 subtitle: "Acheulean Stone Artefact Patterning"
 author: "Ben Marwick"
 date: today
+fig-dpi: 600
 format:
   gfm:
     toc: false              # GitHub READMEs usually don't need TOC
     code-fold: false        # Show code by default
     html-math-method: webtex  # Better math rendering on GitHub
-    dpi: 600
-    fig-format: png
 execute:
   echo: true                # Show code in README
   warning: false            # Hide warnings for cleaner output
