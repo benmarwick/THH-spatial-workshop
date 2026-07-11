@@ -2,7 +2,7 @@
 Ben Marwick
 2026-07-11
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/benmarwick/THH-spatial-workshop/master?urlpath=rstudio)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/benmarwick/THH-spatial-workshop/HEAD?urlpath=rstudio)
 
 Launch this workshop in RStudio on Binder to run the Quarto notebook environment with all required R packages preinstalled.
 
