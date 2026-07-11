@@ -23,7 +23,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY readme.qmd /home/rstudio/readme.qmd
-COPY readme.md /home/rstudio/readme.md
 COPY install.R /tmp/install.R
 
 WORKDIR /home/rstudio
