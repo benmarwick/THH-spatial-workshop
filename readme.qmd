@@ -16,6 +16,10 @@ execute:
   cache: true               # Cache computations for faster rendering
 ---
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/benmarwick/THH-spatial-workshop/master?urlpath=rstudio)
+
+Launch this workshop in RStudio on Binder to run the Quarto notebook environment with all required R packages preinstalled.
+
 ## Introduction
 
 This workshop introduces modern spatial data science methods applied to Acheulean stone artefact assemblage data. We work through a full analytical workflow, from descriptive statistics to kernel density estimation, spatial statistics, mark correlation, and machine learning, using a simulated open-air site that mirrors real Acheulean assemblage structures documented in the literature.
