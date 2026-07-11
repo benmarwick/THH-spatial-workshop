@@ -393,7 +393,7 @@ kde_to_df <- function(ppp_obj) {
 ```
 
 ``` r
-# Step A: KDE — one im object per type (uses your existing ppp objects)
+# Step A: KDE — one im object per type (uses existing ppp objects)
 kde_im_handaxe <- density(ppp_handaxe, sigma = sigma_bw)
 kde_im_cleaver  <- density(ppp_cleaver,  sigma = sigma_bw)
 kde_im_core     <- density(ppp_core,     sigma = sigma_bw)
@@ -429,7 +429,7 @@ p_kde_c <- ggplot(kde_cleaver, aes(x = x, y = y, fill = density)) +
 
 p_kde_h + p_kde_c +
   plot_annotation(
-    title    = "Kernel Density Estimatio: First-order intensity surfaces for the two large bifacial tool types"
+    title    = "Kernel Density Estimation: First-order intensity surfaces for the two large bifacial tool types"
   )
 ```
 
@@ -485,7 +485,7 @@ ggplot(env_k_df, aes(x = r)) +
   annotate("text", x = max(env_k_df$r) * 0.6, y = max(env_k_df$hi) * 0.92,
            label = sprintf("MAD test  p = %.4f", mad_k$p.value),
            size = 3.8, colour = "black") +
-  labs(title    = "Ripley's K-Function — All Artefacts",
+  labs(title    = "Ripley's K-Function: All Artefacts",
        subtitle = "Black = Observed K(r) | Red dashed = CSR expectation | Grey = Simulation envelope (n = 199)",
        x = "Distance r (m)", y = "K(r)") +
   theme_minimal(base_size = 14) 
@@ -549,7 +549,7 @@ ggplot(env_g_df, aes(x = r)) +
            label = sprintf("Clark-Evans R = %.3f\np = %.4f",
                            ce_test$statistic, ce_test$p.value),
            size = 3.8, colour = "black", hjust = 0) +
-  labs(title    = "G-Function — Nearest-Neighbour Distance Distribution",
+  labs(title    = "G-Function: Nearest-Neighbour Distance Distribution",
        subtitle = "Black = Observed G(r) | Red dashed = CSR expectation | Grey = Simulation envelope (n = 199)",
        x = "Distance r (m)", y = "G(r)  [proportion of artefacts]") +
   theme_minimal(base_size = 14) 
@@ -799,7 +799,7 @@ ggplot(env_mc_df, aes(x = r)) +
   geom_line(aes(y = obs), colour = "darkblue", linewidth = 1) +
   geom_hline(yintercept = 1, colour = "red", linetype = "dashed", linewidth = 0.8) +
   coord_cartesian(xlim = c(0, 80)) +
-  labs(title    = "Mark Correlation Function — Artefact Size",
+  labs(title    = "Mark Correlation Function: Artefact Size",
        subtitle = "Blue = Observed k_mm(r) | Red dashed = null expectation (k=1) | Grey = Random labelling envelope (n = 199)",
        x = "Distance r (m)", y = expression(k[mm](r))) +
   theme_minimal(base_size = 14) 
@@ -879,7 +879,7 @@ ggplot(knn_df, aes(x = idx, y = dist)) +
   annotate("text",
            x = max(knn_df$idx) * 0.65, y = 16.8,
            label = "ε = 15 m  (elbow)", colour = "red", size = 3.8) +
-  labs(title    = "k-NN Distance Plot — Selecting ε for DBSCAN",
+  labs(title    = "k-NN Distance Plot: Selecting ε for DBSCAN",
        subtitle = "k = 5; the elbow in the sorted 5-NN distance curve suggests ε ≈ 15 m",
        x = "Points sorted by 5-NN distance", 
        y = "5th Nearest Neighbour Distance (m)") +
@@ -954,7 +954,7 @@ p_dbscan <- ggplot(artefacts, aes(x = x, y = y, colour = db_label)) +
   geom_point(size = 1.3, alpha = 0.75) +
   scale_colour_manual(values = db_colours) +
   coord_equal() +
-  labs(title = "DBSCAN Clusters  (ε = 15 m, minPts = 6)",
+  labs(title = "DBSCAN Clusters (ε = 15 m, minPts = 6)",
        colour = "Cluster",
        x = "Easting (m)", y = "Northing (m)") +
   theme_minimal(base_size = 14)  + legend_fix +
@@ -1126,7 +1126,7 @@ ggplot(conf_df, aes(x = Predicted, y = Actual, fill = Freq)) +
   geom_text(aes(label = Freq), fontface = "bold", size = 5,
             colour = "white") +
   scale_fill_viridis_c(option = "plasma", name = "Count") +
-  labs(title    = "Confusion Matrix — Random Forest Zone Classification",
+  labs(title    = "Confusion Matrix: Random Forest Zone Classification",
        subtitle  = sprintf("Overall accuracy: %.1f%% on held-out test set", accuracy),
        x = "Predicted Zone", y = "Actual Zone") +
   theme_minimal(base_size = 14)  + legend_fix +
@@ -1170,7 +1170,7 @@ ggplot(imp_df, aes(x = Feature, y = MDA, fill = MDA)) +
   coord_flip() +
   scale_fill_viridis_c(option = "cividis", guide = "none") +
   labs(title    = "Random Forest Feature Importance",
-       subtitle = "Mean Decrease in Accuracy (MDA) — higher = removing this feature hurts accuracy more",
+       subtitle = "Mean Decrease in Accuracy (MDA): higher = removing this feature reduces accuracy",
        x = NULL, y = "Mean Decrease in Accuracy") +
   theme_minimal(base_size = 14) 
 ```
