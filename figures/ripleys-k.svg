@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1200"
+   height="720"
+   viewBox="0 0 1200 720"
+   role="img"
+   aria-labelledby="title desc"
+   version="1.1"
+   id="svg76"
+   sodipodi:docname="improved_ripleys_k.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview76"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.46617164"
+     inkscape:cx="481.58227"
+     inkscape:cy="352.87432"
+     inkscape:window-width="1232"
+     inkscape:window-height="592"
+     inkscape:window-x="282"
+     inkscape:window-y="44"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg76" />
+  <title
+     id="title">How Ripley's K measures spatial aggregation across distances</title>
+  <desc
+     id="desc">A three-step diagram. First, a spatial point pattern is shown. Second, five other points within distance r of a focal point are counted, and the operation is repeated for every point and many distances. Third, the observed K curve is compared with the homogeneous planar Poisson reference pi r squared and an illustrative simulation envelope. Departures beyond the envelope indicate unusually many or few neighboring pairs at those distances. Practical estimates use edge correction, and an inhomogeneous K function may be needed when intensity varies spatially.</desc>
+  <defs
+     id="defs3">
+    <style
+       id="style1">
+.title{font:700 30px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#17212b}.subtitle{font:400 16px system-ui,sans-serif;fill:#52606d}.step-number{font:700 16px system-ui,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central}.step-title{font:700 18px system-ui,sans-serif;fill:#17212b}.body{font:400 14px system-ui,sans-serif;fill:#3e4c59}.small{font:400 12.5px system-ui,sans-serif;fill:#52606d}.tiny{font:400 11px system-ui,sans-serif;fill:#52606d}.axis-label{font:600 13px system-ui,sans-serif;fill:#364152}.direct{font:700 12.5px system-ui,sans-serif;paint-order:stroke fill;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round}.formula{font:600 14px Georgia,&quot;Times New Roman&quot;,serif;fill:#263238}.panel{fill:#fff;stroke:#d9e2ec;stroke-width:1.5}.plot{fill:#f8fafc;stroke:#bcccdc;stroke-width:1.5}.callout{fill:#f0f7ff;stroke:#9fb3c8;stroke-width:1.25}.point{fill:#2468b4;stroke:#fff;stroke-width:2}.outside{fill:#2468b4;fill-opacity:.45;stroke:#fff;stroke-width:2}.focus{fill:#d55e00;stroke:#17212b;stroke-width:2.5}.neighbor{fill:#d55e00;stroke:#fff;stroke-width:2}.radius{fill:#e69f00;fill-opacity:.13;stroke:#c47f00;stroke-width:2;stroke-dasharray:7 6}.radius-line{stroke:#8f5d00;stroke-width:2}.csr{fill:none;stroke:#52606d;stroke-width:3;stroke-dasharray:9 7}.observed{fill:none;stroke:#007f73;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.envelope{fill:#b8c5d1;fill-opacity:.32}.axis{stroke:#52606d;stroke-width:1.5}.grid{stroke:#d9e2ec;stroke-width:1}.arrow{fill:none;stroke:#9aa5b1;stroke-width:2.5;stroke-linecap:round}.pill{fill:#fff;fill-opacity:.94;stroke:#d9e2ec;stroke-width:1.1}
+</style>
+    <marker
+       id="ah"
+       markerWidth="8"
+       markerHeight="8"
+       refX="7"
+       refY="4"
+       orient="auto">
+      <path
+         d="M0,0 L8,4 L0,8 Z"
+         fill="#9aa5b1"
+         id="path1" />
+    </marker>
+    <clipPath
+       id="c1">
+      <rect
+         x="40"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect1" />
+    </clipPath>
+    <clipPath
+       id="c2">
+      <rect
+         x="440"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect2" />
+    </clipPath>
+    <clipPath
+       id="c3">
+      <rect
+         x="840"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect3" />
+    </clipPath>
+  </defs>
+  <rect
+     width="1200"
+     height="720"
+     fill="#f5f7fa"
+     id="rect4" />
+  <text
+     x="48"
+     y="55"
+     class="title"
+     id="text4">How Ripley's K works</text>
+  <text
+     x="48"
+     y="84"
+     class="subtitle"
+     id="text5"><tspan
+       x="48"
+       id="tspan4">Ripley's K asks whether points have unusually many or few neighbors</tspan><tspan
+       x="48"
+       dy="22"
+       id="tspan5">at each spatial distance r.</tspan></text>
+  <rect
+     x="16"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect5" />
+  <rect
+     x="416"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect6" />
+  <rect
+     x="816"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect7" />
+  <path
+     d="M392 365 H408"
+     class="arrow"
+     marker-end="url(#ah)"
+     id="path7" />
+  <path
+     d="M792 365 H808"
+     class="arrow"
+     marker-end="url(#ah)"
+     id="path8" />
+  <!-- 1 -->
+  <circle
+     cx="44"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle8" />
+  <text
+     x="44"
+     y="160"
+     class="step-number"
+     id="text8">1</text>
+  <text
+     x="72"
+     y="166"
+     class="step-title"
+     id="text9">Start with a point pattern</text>
+  <text
+     x="40"
+     y="194"
+     class="body"
+     id="text10"><tspan
+       x="40"
+       id="tspan9">Each dot is one observed event or location</tspan><tspan
+       x="40"
+       dy="19"
+       id="tspan10">inside a defined study window.</tspan></text>
+  <rect
+     x="40"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot"
+     id="rect10" />
+  <g
+     clip-path="url(#c1)"
+     class="point"
+     id="g26">
+    <circle
+       cx="88"
+       cy="279"
+       r="7"
+       id="circle10" />
+    <circle
+       cx="111"
+       cy="261"
+       r="7"
+       id="circle11" />
+    <circle
+       cx="129"
+       cy="288"
+       r="7"
+       id="circle12" />
+    <circle
+       cx="101"
+       cy="311"
+       r="7"
+       id="circle13" />
+    <circle
+       cx="142"
+       cy="321"
+       r="7"
+       id="circle14" />
+    <circle
+       cx="234"
+       cy="338"
+       r="7"
+       id="circle15" />
+    <circle
+       cx="261"
+       cy="320"
+       r="7"
+       id="circle16" />
+    <circle
+       cx="278"
+       cy="350"
+       r="7"
+       id="circle17" />
+    <circle
+       cx="247"
+       cy="369"
+       r="7"
+       id="circle18" />
+    <circle
+       cx="293"
+       cy="384"
+       r="7"
+       id="circle19" />
+    <circle
+       cx="177"
+       cy="252"
+       r="7"
+       id="circle20" />
+    <circle
+       cx="298"
+       cy="263"
+       r="7"
+       id="circle21" />
+    <circle
+       cx="172"
+       cy="379"
+       r="7"
+       id="circle22" />
+    <circle
+       cx="75"
+       cy="419"
+       r="7"
+       id="circle23" />
+    <circle
+       cx="135"
+       cy="461"
+       r="7"
+       id="circle24" />
+    <circle
+       cx="214"
+       cy="448"
+       r="7"
+       id="circle25" />
+    <circle
+       cx="308"
+       cy="458"
+       r="7"
+       id="circle26" />
+  </g>
+  <rect
+     x="40"
+     y="508"
+     width="320"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect26" />
+  <text
+     x="58"
+     y="527"
+     class="body"
+     id="text28"><tspan
+       x="58"
+       font-weight="700"
+       id="tspan26">Scale-specific question:</tspan><tspan
+       x="58"
+       dy="19"
+       id="tspan27">At which distances are there unusually</tspan><tspan
+       x="58"
+       dy="19"
+       id="tspan28">many or unusually few neighbors?</tspan></text>
+  <!-- 2 -->
+  <circle
+     cx="444"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle28" />
+  <text
+     x="444"
+     y="160"
+     class="step-number"
+     id="text29">2</text>
+  <text
+     x="472"
+     y="166"
+     class="step-title"
+     id="text30">Count other points within r</text>
+  <text
+     x="440"
+     y="194"
+     class="body"
+     id="text31"><tspan
+       x="440"
+       id="tspan30">Repeat around every point, excluding the focal</tspan><tspan
+       x="440"
+       dy="19"
+       id="tspan31">point itself, and across many distances.</tspan></text>
+  <rect
+     x="440"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot"
+     id="rect31" />
+  <g
+     clip-path="url(#c2)"
+     id="g43">
+    <circle
+       cx="586"
+       cy="358"
+       r="78"
+       class="radius"
+       id="circle31" />
+    <g
+       class="outside"
+       id="g36">
+      <circle
+         cx="472"
+         cy="250"
+         r="7"
+         id="circle32" />
+      <circle
+         cx="706"
+         cy="252"
+         r="7"
+         id="circle33" />
+      <circle
+         cx="725"
+         cy="407"
+         r="7"
+         id="circle34" />
+      <circle
+         cx="461"
+         cy="443"
+         r="7"
+         id="circle35" />
+      <circle
+         cx="663"
+         cy="467"
+         r="7"
+         id="circle36" />
+    </g>
+    <g
+       class="neighbor"
+       id="g41">
+      <circle
+         cx="531"
+         cy="312"
+         r="7"
+         id="circle37" />
+      <circle
+         cx="616"
+         cy="302"
+         r="7"
+         id="circle38" />
+      <circle
+         cx="648"
+         cy="357"
+         r="7"
+         id="circle39" />
+      <circle
+         cx="611"
+         cy="413"
+         r="7"
+         id="circle40" />
+      <circle
+         cx="538"
+         cy="400"
+         r="7"
+         id="circle41" />
+    </g>
+    <circle
+       cx="586"
+       cy="358"
+       r="9"
+       class="focus"
+       id="circle42" />
+    <line
+       x1="586"
+       y1="358"
+       x2="664"
+       y2="358"
+       class="radius-line"
+       id="line42" />
+    <line
+       x1="664"
+       y1="352"
+       x2="664"
+       y2="364"
+       class="radius-line"
+       id="line43" />
+    <text
+       x="625"
+       y="344"
+       class="direct"
+       fill="#8f5d00"
+       id="text43">r</text>
+  </g>
+  <line
+     x1="515"
+     y1="282"
+     x2="529"
+     y2="304"
+     stroke="#d55e00"
+     stroke-width="1.5"
+     id="line44" />
+  <text
+     x="500"
+     y="277"
+     class="direct"
+     fill="#b34e00"
+     id="text44">counted</text>
+  <line
+     x1="688"
+     y1="427"
+     x2="718"
+     y2="409"
+     stroke="#52606d"
+     stroke-width="1.5"
+     id="line45" />
+  <text
+     x="674"
+     y="445"
+     class="direct"
+     fill="#52606d"
+     id="text45">outside r</text>
+  <rect
+     x="492"
+     y="452"
+     width="154"
+     height="25"
+     rx="12"
+     class="pill"
+     id="rect45" />
+  <text
+     x="569"
+     y="469"
+     class="small"
+     text-anchor="middle"
+     id="text46">5 other points within r</text>
+  <rect
+     x="440"
+     y="508"
+     width="320"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect46" />
+  <text
+     x="458"
+     y="527"
+     class="body"
+     id="text48"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:14px;line-height:normal;font-family:system-ui, sans-serif;white-space:pre;inline-size:295.339"
+     xml:space="preserve"><tspan
+       x="458"
+       y="527"
+       id="tspan1">K(r) summarizes neighboring pairs within </tspan><tspan
+       x="458"
+       y="544.49998"
+       id="tspan2">r, after adjustment for overall point </tspan><tspan
+       x="458"
+       y="561.99998"
+       id="tspan6">intensity. <tspan
+   style="font-size:12.5px;fill:#52606d"
+   id="tspan3">Larger values mean more </tspan></tspan><tspan
+       x="458"
+       y="579.49998"
+       id="tspan8"><tspan
+         style="font-size:12.5px;fill:#52606d"
+         id="tspan7">cumulative close pairs.</tspan></tspan></text>
+  <!-- 3 -->
+  <circle
+     cx="844"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle48" />
+  <text
+     x="844"
+     y="160"
+     class="step-number"
+     id="text49">3</text>
+  <text
+     x="872"
+     y="166"
+     class="step-title"
+     id="text50">Compare with a null model</text>
+  <text
+     x="840"
+     y="190"
+     class="body"
+     id="text53"><tspan
+       x="840"
+       id="tspan50">For a homogeneous Poisson process in 2D,</tspan><tspan
+       x="840"
+       dy="19"
+       id="tspan51">K</tspan><tspan
+       baseline-shift="sub"
+       font-size="10"
+       id="tspan52">CSR</tspan><tspan
+       baseline-shift="baseline"
+       id="tspan53">(r) = πr².</tspan></text>
+  <rect
+     x="840"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot"
+     id="rect53" />
+  <g
+     clip-path="url(#c3)"
+     id="g60">
+    <g
+       class="grid"
+       id="g58">
+      <line
+         x1="888"
+         y1="432"
+         x2="1134"
+         y2="432"
+         id="line53" />
+      <line
+         x1="888"
+         y1="372"
+         x2="1134"
+         y2="372"
+         id="line54" />
+      <line
+         x1="888"
+         y1="312"
+         x2="1134"
+         y2="312"
+         id="line55" />
+      <line
+         x1="949"
+         y1="250"
+         x2="949"
+         y2="456"
+         id="line56" />
+      <line
+         x1="1010"
+         y1="250"
+         x2="1010"
+         y2="456"
+         id="line57" />
+      <line
+         x1="1071"
+         y1="250"
+         x2="1071"
+         y2="456"
+         id="line58" />
+    </g>
+    <path
+       class="envelope"
+       d="M888 449 C931 442,974 423,1013 391 C1050 359,1087 308,1134 245 L1134 270 C1090 335,1053 384,1015 416 C974 447,931 461,888 463 Z"
+       id="path58" />
+    <path
+       d="M888 456 C931 451,974 435,1013 404 C1050 370,1087 320,1134 258"
+       class="csr"
+       id="path59" />
+    <path
+       d="M888 456 C919 449,940 427,962 396 C987 358,1016 326,1045 304 C1077 279,1102 263,1134 254"
+       class="observed"
+       id="path60" />
+  </g>
+  <line
+     x1="888"
+     y1="456"
+     x2="1140"
+     y2="456"
+     class="axis"
+     id="line60" />
+  <line
+     x1="888"
+     y1="456"
+     x2="888"
+     y2="247"
+     class="axis"
+     id="line61" />
+  <text
+     x="1010"
+     y="479"
+     class="axis-label"
+     text-anchor="middle"
+     id="text61">distance r</text>
+  <text
+     x="858"
+     y="354"
+     class="axis-label"
+     text-anchor="middle"
+     transform="rotate(-90 858 354)"
+     id="text62">K(r)</text>
+  <line
+     x1="994"
+     y1="273"
+     x2="1045"
+     y2="304"
+     stroke="#007f73"
+     stroke-width="1.5"
+     id="line62" />
+  <text
+     x="896"
+     y="269"
+     class="direct"
+     fill="#007f73"
+     id="text63"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">observed K(r)</text>
+  <line
+     x1="980.37451"
+     y1="427.51666"
+     x2="990.5188"
+     y2="438.25119"
+     stroke="#52606d"
+     stroke-width="0.876794"
+     id="line63" />
+  <text
+     x="994.98663"
+     y="445.89288"
+     class="direct"
+     fill="#52606d"
+     id="text64"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">CSR expectation: πr²</text>
+  <rect
+     x="1017.6618"
+     y="406.09821"
+     width="140"
+     height="25"
+     rx="6"
+     class="pill"
+     id="rect64" />
+  <text
+     x="1087.6619"
+     y="423.09821"
+     class="small"
+     text-anchor="middle"
+     id="text65"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">illustrative envelope</text>
+  <rect
+     x="840"
+     y="508"
+     width="320"
+     height="88"
+     rx="9"
+     class="callout"
+     id="rect65" />
+  <circle
+     cx="857"
+     cy="522"
+     r="5"
+     fill="#007f73"
+     id="circle65" />
+  <text
+     x="870"
+     y="526"
+     class="small"
+     id="text66"><tspan
+       x="870"
+       id="tspan65">Above envelope → unusually many</tspan><tspan
+       x="870"
+       dy="16"
+       id="tspan66">neighboring pairs at those distances</tspan></text>
+  <path
+     d="M852 559 H862"
+     stroke="#52606d"
+     stroke-width="2.5"
+     stroke-dasharray="4 3"
+     id="path66" />
+  <text
+     x="870"
+     y="563"
+     class="small"
+     id="text68"><tspan
+       x="870"
+       id="tspan67">Below envelope → unusually few</tspan><tspan
+       x="870"
+       dy="16"
+       id="tspan68">neighboring pairs at those distances</tspan></text>
+  <!-- footer -->
+  <line
+     x1="48"
+     y1="640"
+     x2="1152"
+     y2="640"
+     stroke="#d9e2ec"
+     stroke-width="1.5"
+     id="line68" />
+  <text
+     x="48"
+     y="658"
+     class="formula"
+     id="text73"><tspan
+       x="48"
+       id="tspan69">Naive estimate: K̂(r) = |W|/[n(n−1)] × Σ</tspan><tspan
+       baseline-shift="sub"
+       font-size="10"
+       id="tspan70">i≠j</tspan><tspan
+       baseline-shift="baseline"
+       id="tspan71"> 1(d</tspan><tspan
+       baseline-shift="sub"
+       font-size="10"
+       id="tspan72">ij</tspan><tspan
+       baseline-shift="baseline"
+       id="tspan73"> ≤ r)</tspan></text>
+  <text
+     x="48"
+     y="681"
+     class="small"
+     id="text74">Practical estimates use pair-specific edge-correction weights.</text>
+  <text
+     x="1152"
+     y="651"
+     class="small"
+     text-anchor="end"
+     id="text76"><tspan
+       x="1152"
+       id="tspan74">Interpret departures only at affected distances.</tspan><tspan
+       x="1152"
+       dy="18"
+       id="tspan75">If intensity varies spatially, use an inhomogeneous K</tspan><tspan
+       x="1152"
+       dy="18"
+       id="tspan76">or another appropriate null model.</tspan></text>
+</svg>

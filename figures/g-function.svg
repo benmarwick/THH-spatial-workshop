@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1200"
+   height="720"
+   viewBox="0 0 1200 720"
+   role="img"
+   aria-labelledby="svg-title svg-desc"
+   version="1.1"
+   id="svg97"
+   sodipodi:docname="g-function.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview97"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.527892"
+     inkscape:cx="774.77969"
+     inkscape:cy="304.03946"
+     inkscape:window-width="1424"
+     inkscape:window-height="876"
+     inkscape:window-x="33"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g67" />
+  <title
+     id="svg-title">How the nearest-neighbor G-function describes spatial point patterns</title>
+  <desc
+     id="svg-desc">A three-step scientific diagram explaining the spatial G-function. First, directed arrows measure the distance from every observed point to its nearest neighbor; nearest-neighbor relationships need not be mutual. Second, all point-specific nearest-neighbor distances are compared with a threshold r, and the fraction no greater than r gives the empirical G-function. Third, the observed G-function is compared with a simulation envelope for a homogeneous planar Poisson process, whose theoretical function is one minus exponential of negative lambda pi r squared. Departures above or below the envelope indicate unusually many or few short nearest-neighbor distances at those spatial scales.</desc>
+  <defs
+     id="defs4">
+    <style
+       id="style1">
+.title{font:700 30px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#17212b}.subtitle{font:400 16px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#52606d}.step-number{font:700 16px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central}.step-title{font:700 18px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#17212b}.body{font:400 15px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#3e4c59}.small{font:400 13px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#52606d}.tiny{font:400 12px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#52606d}.axis-label{font:600 14px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#364152}.direct-label{font:700 13px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;paint-order:stroke fill;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round}.formula{font:600 14px Georgia,&quot;Times New Roman&quot;,serif;fill:#263238}.panel{fill:#fff;stroke:#d9e2ec;stroke-width:1.5}.plot-bg{fill:#f8fafc;stroke:#bcccdc;stroke-width:1.5}.callout{fill:#f0f7ff;stroke:#9fb3c8;stroke-width:1.25}.point{fill:#2468b4;stroke:#fff;stroke-width:2}.highlight-point{fill:#d55e00;stroke:#fff;stroke-width:2.5}.neighbor-arrow{fill:none;stroke:#d55e00;stroke-width:2;stroke-linecap:round}.distance-short{stroke:#007f73;stroke-width:5;stroke-linecap:round}.distance-long{stroke:#9aa5b1;stroke-width:5;stroke-linecap:round}.threshold{stroke:#8f5d00;stroke-width:2;stroke-dasharray:6 5}.observed-line{fill:none;stroke:#007f73;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.csr-line{fill:none;stroke:#52606d;stroke-width:3;stroke-dasharray:9 7;stroke-linecap:round}.envelope{fill:#b8c5d1;fill-opacity:.32;stroke:none}.axis{stroke:#52606d;stroke-width:1.5}.grid{stroke:#d9e2ec;stroke-width:1}.arrow{fill:none;stroke:#9aa5b1;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.check{font:700 13px system-ui,sans-serif;fill:#007f73}.cross{font:700 13px system-ui,sans-serif;fill:#697386}
+</style>
+    <marker
+       id="arrowhead"
+       markerWidth="8"
+       markerHeight="8"
+       refX="7"
+       refY="4"
+       orient="auto">
+      <path
+         d="M0,0 L8,4 L0,8 Z"
+         fill="#9aa5b1"
+         id="path1" />
+    </marker>
+    <marker
+       id="orange-arrowhead"
+       markerWidth="7"
+       markerHeight="7"
+       refX="6"
+       refY="3.5"
+       orient="auto">
+      <path
+         d="M0,0 L7,3.5 L0,7 Z"
+         fill="#d55e00"
+         id="path2" />
+    </marker>
+    <clipPath
+       id="pattern-clip">
+      <rect
+         x="40"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect2" />
+    </clipPath>
+    <clipPath
+       id="count-clip">
+      <rect
+         x="440"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect3" />
+    </clipPath>
+    <clipPath
+       id="graph-clip">
+      <rect
+         x="840"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect4" />
+    </clipPath>
+  </defs>
+  <rect
+     width="1200"
+     height="720"
+     fill="#f5f7fa"
+     id="rect5" />
+  <text
+     x="48"
+     y="55"
+     class="title"
+     id="text5">How the G-function works</text>
+  <text
+     x="48"
+     y="84"
+     class="subtitle"
+     id="text6"><tspan
+       x="48"
+       id="tspan5">It summarizes the distance from each observed point to its nearest</tspan><tspan
+       x="48"
+       dy="22"
+       id="tspan6">neighboring point.</tspan></text>
+  <rect
+     x="16"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect6" />
+  <rect
+     x="416"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect7" />
+  <rect
+     x="816"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect8" />
+  <path
+     d="M392 365 H408"
+     class="arrow"
+     marker-end="url(#arrowhead)"
+     id="path8" />
+  <path
+     d="M792 365 H808"
+     class="arrow"
+     marker-end="url(#arrowhead)"
+     id="path9" />
+  <!-- STEP 1 -->
+  <circle
+     cx="60"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle9" />
+  <text
+     x="60"
+     y="160"
+     class="step-number"
+     id="text9">1</text>
+  <text
+     x="88"
+     y="156"
+     class="step-title"
+     id="text10"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:18px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif"><tspan
+       sodipodi:role="line"
+       id="tspan98"
+       x="88"
+       y="156">Measure each nearest</tspan><tspan
+       sodipodi:role="line"
+       id="tspan99"
+       x="88"
+       y="178.5">distance</tspan></text>
+  <text
+     x="56"
+     y="196"
+     class="body"
+     id="text11"><tspan
+       x="56"
+       id="tspan10">For every point, measure the distance</tspan><tspan
+       x="56"
+       dy="20"
+       id="tspan11">to its closest other point.</tspan></text>
+  <rect
+     x="40"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect11" />
+  <g
+     clip-path="url(#pattern-clip)"
+     id="g42">
+    <!-- directed nearest-neighbor arrows; includes non-mutual chains -->
+    <g
+       class="neighbor-arrow"
+       marker-end="url(#orange-arrowhead)"
+       id="g26">
+      <line
+         x1="86"
+         y1="279"
+         x2="111"
+         y2="261"
+         id="line11" />
+      <line
+         x1="122"
+         y1="258"
+         x2="146"
+         y2="288"
+         id="line12" />
+      <line
+         x1="151"
+         y1="297"
+         x2="160"
+         y2="318"
+         id="line13" />
+      <line
+         x1="166"
+         y1="325"
+         x2="151"
+         y2="303"
+         id="line14" />
+      <line
+         x1="203"
+         y1="262"
+         x2="224"
+         y2="276"
+         id="line15" />
+      <line
+         x1="235"
+         y1="280"
+         x2="207"
+         y2="265"
+         id="line16" />
+      <line
+         x1="285"
+         y1="276"
+         x2="304"
+         y2="292"
+         id="line17" />
+      <line
+         x1="313"
+         y1="300"
+         x2="289"
+         y2="279"
+         id="line18" />
+      <line
+         x1="250"
+         y1="356"
+         x2="271"
+         y2="344"
+         id="line19" />
+      <line
+         x1="281"
+         y1="341"
+         x2="257"
+         y2="353"
+         id="line20" />
+      <line
+         x1="106"
+         y1="409"
+         x2="131"
+         y2="427"
+         id="line21" />
+      <line
+         x1="141"
+         y1="433"
+         x2="112"
+         y2="415"
+         id="line22" />
+      <line
+         x1="204"
+         y1="431"
+         x2="225"
+         y2="448"
+         id="line23" />
+      <line
+         x1="235"
+         y1="451"
+         x2="211"
+         y2="433"
+         id="line24" />
+      <line
+         x1="292"
+         y1="421"
+         x2="314"
+         y2="444"
+         id="line25" />
+      <line
+         x1="322"
+         y1="450"
+         x2="298"
+         y2="425"
+         id="line26" />
+    </g>
+    <g
+       class="point"
+       id="g41">
+      <circle
+         cx="82"
+         cy="282"
+         r="7"
+         id="circle26" />
+      <circle
+         cx="117"
+         cy="257"
+         r="7"
+         id="circle27" />
+      <circle
+         cx="150"
+         cy="295"
+         r="7"
+         id="circle28" />
+      <circle
+         cx="164"
+         cy="325"
+         r="7"
+         id="circle29" />
+      <circle
+         cx="201"
+         cy="260"
+         r="7"
+         id="circle30" />
+      <circle
+         cx="231"
+         cy="279"
+         r="7"
+         id="circle31" />
+      <circle
+         cx="282"
+         cy="274"
+         r="7"
+         id="circle32" />
+      <circle
+         cx="310"
+         cy="297"
+         r="7"
+         id="circle33" />
+      <circle
+         cx="252"
+         cy="357"
+         r="7"
+         id="circle34" />
+      <circle
+         cx="278"
+         cy="342"
+         r="7"
+         id="circle35" />
+      <circle
+         cx="104"
+         cy="408"
+         r="7"
+         id="circle36" />
+      <circle
+         cx="137"
+         cy="431"
+         r="7"
+         id="circle37" />
+      <circle
+         cx="202"
+         cy="430"
+         r="7"
+         id="circle38" />
+      <circle
+         cx="231"
+         cy="452"
+         r="7"
+         id="circle39" />
+      <circle
+         cx="290"
+         cy="419"
+         r="7"
+         id="circle40" />
+      <circle
+         cx="320"
+         cy="449"
+         r="7"
+         id="circle41" />
+    </g>
+  </g>
+  <path
+     d="M100 357 C119 345,137 329,155 312"
+     fill="none"
+     stroke="#d55e00"
+     stroke-width="1.5"
+     marker-end="url(#orange-arrowhead)"
+     id="path42" />
+  <text
+     x="86"
+     y="371"
+     class="direct-label"
+     fill="#b34e00"
+     id="text43"><tspan
+       x="86"
+       id="tspan42">one directed distance</tspan><tspan
+       x="86"
+       dy="17"
+       id="tspan43">from each point</tspan></text>
+  <text
+     x="188"
+     y="474"
+     class="tiny"
+     id="text44">Arrows need not be mutual.</text>
+  <rect
+     x="40"
+     y="508"
+     width="320"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect44" />
+  <text
+     x="64"
+     y="526"
+     class="body"
+     id="text46"><tspan
+       x="64"
+       id="tspan44">Each of n points contributes</tspan><tspan
+       x="64"
+       dy="19"
+       id="tspan45">one distance: d₁, d₂, …, dₙ.</tspan><tspan
+       x="64"
+       dy="19"
+       class="small"
+       id="tspan46">A mutual pair contributes two values.</tspan></text>
+  <!-- STEP 2 -->
+  <circle
+     cx="460"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle46" />
+  <text
+     x="460"
+     y="160"
+     class="step-number"
+     id="text47">2</text>
+  <text
+     x="488"
+     y="166"
+     class="step-title"
+     id="text48">Ask which distances are ≤ r</text>
+  <text
+     x="440"
+     y="187"
+     class="body"
+     id="text50"><tspan
+       x="440"
+       id="tspan48">Increase r and record the fraction</tspan><tspan
+       x="440"
+       dy="18"
+       id="tspan49">of nearest-neighbor distances</tspan><tspan
+       x="440"
+       dy="18"
+       id="tspan50">no greater than r.</tspan></text>
+  <rect
+     x="440"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect50" />
+  <g
+     clip-path="url(#count-clip)"
+     id="g67">
+    <text
+       x="460"
+       y="254"
+       class="small"
+       id="text51">nearest-neighbor distances for six points</text>
+    <!-- common scale -->
+    <line
+       x1="510"
+       y1="454"
+       x2="704"
+       y2="454"
+       stroke="#9aa5b1"
+       stroke-width="1.5"
+       id="line51" />
+    <text
+       x="505"
+       y="469"
+       class="tiny"
+       text-anchor="middle"
+       id="text52">0</text>
+    <text
+       x="704"
+       y="469"
+       class="tiny"
+       text-anchor="middle"
+       id="text53">larger distance</text>
+    <!-- threshold -->
+    <line
+       x1="628"
+       y1="284"
+       x2="628"
+       y2="452"
+       class="threshold"
+       id="line53" />
+    <text
+       x="640"
+       y="279"
+       class="direct-label"
+       fill="#8f5d00"
+       id="text54">threshold r</text>
+    <!-- rows -->
+    <g
+       class="small"
+       id="g60">
+      <text
+         x="478"
+         y="300"
+         id="text55">d₁</text>
+      <text
+         x="478"
+         y="330"
+         id="text56">d₂</text>
+      <text
+         x="478"
+         y="360"
+         id="text57">d₃</text>
+      <text
+         x="478"
+         y="390"
+         id="text58">d₄</text>
+      <text
+         x="478"
+         y="420"
+         id="text59">d₅</text>
+      <text
+         x="478"
+         y="450"
+         id="text60">d₆</text>
+    </g>
+    <g
+       id="g66">
+      <line
+         x1="515"
+         y1="295"
+         x2="560"
+         y2="295"
+         class="distance-short"
+         id="line60" />
+      <circle
+         cx="560"
+         cy="295"
+         r="6"
+         fill="#007f73"
+         id="circle60" />
+      <text
+         x="576"
+         y="300"
+         class="check"
+         id="text61">≤ r ✓</text>
+      <line
+         x1="515"
+         y1="325"
+         x2="585"
+         y2="325"
+         class="distance-short"
+         id="line61" />
+      <circle
+         cx="585"
+         cy="325"
+         r="6"
+         fill="#007f73"
+         id="circle61" />
+      <text
+         x="600"
+         y="330"
+         class="check"
+         id="text62">≤ r ✓</text>
+      <line
+         x1="515"
+         y1="355"
+         x2="611"
+         y2="355"
+         class="distance-short"
+         id="line62" />
+      <circle
+         cx="611"
+         cy="355"
+         r="6"
+         fill="#007f73"
+         id="circle62" />
+      <text
+         x="640"
+         y="360"
+         class="check"
+         id="text63">≤ r ✓</text>
+      <line
+         x1="515"
+         y1="385"
+         x2="620"
+         y2="385"
+         class="distance-short"
+         id="line63" />
+      <circle
+         cx="620"
+         cy="385"
+         r="6"
+         fill="#007f73"
+         id="circle63" />
+      <text
+         x="640"
+         y="390"
+         class="check"
+         id="text64">≤ r ✓</text>
+      <line
+         x1="515"
+         y1="415"
+         x2="660"
+         y2="415"
+         class="distance-long"
+         id="line64" />
+      <circle
+         cx="660"
+         cy="415"
+         r="6"
+         fill="#9aa5b1"
+         id="circle64" />
+      <text
+         x="670"
+         y="420"
+         class="cross"
+         id="text65">&gt; r</text>
+      <line
+         x1="515"
+         y1="445"
+         x2="690"
+         y2="445"
+         class="distance-long"
+         id="line65" />
+      <circle
+         cx="690"
+         cy="445"
+         r="6"
+         fill="#9aa5b1"
+         id="circle65" />
+      <text
+         x="700"
+         y="450"
+         class="cross"
+         id="text66">&gt; r</text>
+    </g>
+  </g>
+  <rect
+     x="440"
+     y="508"
+     width="320"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect67" />
+  <text
+     x="464"
+     y="526"
+     class="body"
+     id="text69"><tspan
+       x="464"
+       id="tspan67">Here, 4 of 6 distances have dᵢ ≤ r,</tspan><tspan
+       x="464"
+       dy="19"
+       id="tspan68">so Ĝ(r) = 4/6.</tspan><tspan
+       x="464"
+       dy="19"
+       class="small"
+       id="tspan69">Repeat across r to build the curve.</tspan></text>
+  <!-- STEP 3 -->
+  <circle
+     cx="860"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle69" />
+  <text
+     x="860"
+     y="160"
+     class="step-number"
+     id="text70">3</text>
+  <text
+     x="888"
+     y="166"
+     class="step-title"
+     id="text71">Compare with a null model</text>
+  <text
+     x="840"
+     y="187"
+     class="body"
+     id="text75"><tspan
+       x="840"
+       id="tspan71">For a homogeneous Poisson process in 2D,</tspan><tspan
+       x="840"
+       dy="18"
+       id="tspan74">G<tspan
+   baseline-shift="sub"
+   font-size="11"
+   id="tspan72">CSR</tspan><tspan
+   baseline-shift="baseline"
+   id="tspan73">(r) = 1 − exp(−λπr²).</tspan></tspan><tspan
+       x="840"
+       dy="18"
+       id="tspan75">Here, λ is the point intensity.</tspan></text>
+  <rect
+     x="840"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect75" />
+  <g
+     clip-path="url(#graph-clip)"
+     id="g82">
+    <g
+       class="grid"
+       id="g80">
+      <line
+         x1="900"
+         y1="404"
+         x2="1120"
+         y2="404"
+         id="line75" />
+      <line
+         x1="900"
+         y1="348"
+         x2="1120"
+         y2="348"
+         id="line76" />
+      <line
+         x1="900"
+         y1="292"
+         x2="1120"
+         y2="292"
+         id="line77" />
+      <line
+         x1="955"
+         y1="250"
+         x2="955"
+         y2="456"
+         id="line78" />
+      <line
+         x1="1010"
+         y1="250"
+         x2="1010"
+         y2="456"
+         id="line79" />
+      <line
+         x1="1065"
+         y1="250"
+         x2="1065"
+         y2="456"
+         id="line80" />
+    </g>
+    <path
+       class="envelope"
+       d="M900 449 C927 438,949 416,969 387 C994 351,1018 313,1044 285 C1068 261,1093 248,1120 243 L1120 261 C1093 267,1068 283,1044 311 C1018 340,994 378,969 413 C949 440,927 457,900 463 Z"
+       id="path80" />
+    <path
+       d="M900 456 C927 447,949 427,969 400 C994 365,1018 327,1044 298 C1068 272,1093 257,1120 251"
+       class="csr-line"
+       id="path81" />
+    <path
+       d="M900 456 C919 432,937 394,958 355 C980 315,1005 282,1032 265 C1057 250,1087 246,1120 245"
+       class="observed-line"
+       id="path82" />
+  </g>
+  <line
+     x1="900"
+     y1="456"
+     x2="1127"
+     y2="456"
+     class="axis"
+     id="line82" />
+  <line
+     x1="900"
+     y1="456"
+     x2="900"
+     y2="247"
+     class="axis"
+     id="line83" />
+  <text
+     x="1010"
+     y="479"
+     class="axis-label"
+     text-anchor="middle"
+     id="text83">distance r</text>
+  <text
+     x="873"
+     y="354"
+     class="axis-label"
+     text-anchor="middle"
+     transform="rotate(-90 873 354)"
+     id="text84">cumulative proportion G(r)</text>
+  <text
+     x="887"
+     y="460"
+     class="small"
+     text-anchor="end"
+     id="text85">0</text>
+  <text
+     x="887"
+     y="253"
+     class="small"
+     text-anchor="end"
+     id="text86">1</text>
+  <line
+     x1="1007.1654"
+     y1="264.78854"
+     x2="1046.1654"
+     y2="257.78854"
+     stroke="#007f73"
+     stroke-width="1.5"
+     id="line86" />
+  <text
+     x="904.25757"
+     y="269.21149"
+     class="direct-label"
+     fill="#007f73"
+     id="text87"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:13px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif">observed Ĝ(r)</text>
+  <line
+     x1="1038.1954"
+     y1="371.38962"
+     x2="1004.2531"
+     y2="352.30194"
+     stroke="#52606d"
+     stroke-width="0.861799"
+     id="line87" />
+  <text
+     x="1014.697"
+     y="381.78366"
+     class="direct-label"
+     fill="#52606d"
+     id="text88"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:13px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif">CSR expectation</text>
+  <rect
+     x="956"
+     y="421"
+     width="142"
+     height="25"
+     rx="6"
+     fill="#ffffff"
+     fill-opacity="0.9"
+     stroke="#c5d0da"
+     id="rect88" />
+  <text
+     x="1027"
+     y="438"
+     class="small"
+     text-anchor="middle"
+     id="text89"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:13px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif">simulation envelope</text>
+  <rect
+     x="840"
+     y="502"
+     width="320"
+     height="88"
+     rx="9"
+     class="callout"
+     id="rect89" />
+  <circle
+     cx="857"
+     cy="520"
+     r="5"
+     fill="#007f73"
+     id="circle89" />
+  <text
+     x="870"
+     y="524"
+     class="small"
+     id="text90"><tspan
+       x="870"
+       id="tspan89">Above envelope → unusually many</tspan><tspan
+       x="870"
+       dy="16"
+       id="tspan90">short nearest-neighbor distances</tspan></text>
+  <path
+     d="M852 557 H862"
+     stroke="#52606d"
+     stroke-width="2.5"
+     stroke-dasharray="4 3"
+     id="path90" />
+  <text
+     x="870"
+     y="561"
+     class="small"
+     id="text92"><tspan
+       x="870"
+       id="tspan91">Below envelope → unusually few</tspan><tspan
+       x="870"
+       dy="16"
+       id="tspan92">short nearest-neighbor distances</tspan></text>
+  <!-- FOOTER -->
+  <line
+     x1="48"
+     y1="640"
+     x2="1152"
+     y2="640"
+     stroke="#d9e2ec"
+     stroke-width="1.5"
+     id="line92" />
+  <text
+     x="48"
+     y="660"
+     class="formula"
+     id="text94"><tspan
+       x="48"
+       id="tspan93">Naive empirical estimate: Ĝ(r) = #{dᵢ ≤ r} / n</tspan><tspan
+       x="48"
+       dy="20"
+       font-family="system-ui,sans-serif"
+       font-weight="400"
+       font-size="13"
+       id="tspan94">Use edge correction and simulation envelopes for inference.</tspan></text>
+  <text
+     x="1152"
+     y="652"
+     class="small"
+     text-anchor="end"
+     id="text97"><tspan
+       x="1152"
+       id="tspan95">Interpret departures at the distances where they occur.</tspan><tspan
+       x="1152"
+       dy="18"
+       id="tspan96">Spatially varying intensity can mimic clustering;</tspan><tspan
+       x="1152"
+       dy="18"
+       id="tspan97">choose a null model appropriate to the study.</tspan></text>
+</svg>

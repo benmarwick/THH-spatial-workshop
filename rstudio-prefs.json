@@ -47,7 +47,7 @@
     "rainbow_parentheses": true,
     "graphics_backend": "ragg",
     "soft_wrap_r_files": true,
-    "show_hidden_files": true,
+    "show_hidden_files": false,
     "source_with_echo": true,
     "use_air_formatter": true,
     "assistant": "none",

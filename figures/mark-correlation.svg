@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1200"
+   height="720"
+   viewBox="0 0 1200 720"
+   role="img"
+   aria-labelledby="svg-title svg-desc"
+   version="1.1"
+   id="svg82"
+   sodipodi:docname="improved_mark_correlation.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview82"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.39618413"
+     inkscape:cx="535.10473"
+     inkscape:cy="368.51552"
+     inkscape:window-width="1352"
+     inkscape:window-height="515"
+     inkscape:window-x="166"
+     inkscape:window-y="58"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg82" />
+  <title
+     id="svg-title">How the product-moment mark correlation function describes numerical point marks</title>
+  <desc
+     id="svg-desc">A three-step diagram explaining the product-moment mark correlation function for positive numerical marks. The same marked point pattern is used in the first two panels. Pairs with separations near distance r are binned or smoothly weighted, their mark products are averaged, and the result is divided by the squared overall mean mark. Under independent random marking the reference value is one. An illustrative simulation envelope shows sampling variation. Values above or below the envelope indicate unusually large or small pairwise mark products at those distances, not generic mark similarity.</desc>
+  <defs
+     id="defs3">
+    <style
+       id="style1">
+.title{font:700 30px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#17212b}.subtitle{font:400 16px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#52606d}.step-number{font:700 16px system-ui,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central}.step-title{font:700 18px system-ui,sans-serif;fill:#17212b}.body{font:400 14px system-ui,sans-serif;fill:#3e4c59}.small{font:400 12.5px system-ui,sans-serif;fill:#52606d}.tiny{font:400 11.5px system-ui,sans-serif;fill:#52606d}.axis-label{font:600 13px system-ui,sans-serif;fill:#364152}.direct-label{font:700 12.5px system-ui,sans-serif;paint-order:stroke fill;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round}.formula{font:600 14px Georgia,&quot;Times New Roman&quot;,serif;fill:#263238}.panel{fill:#fff;stroke:#d9e2ec;stroke-width:1.5}.plot-bg{fill:#f8fafc;stroke:#bcccdc;stroke-width:1.5}.callout{fill:#f0f7ff;stroke:#9fb3c8;stroke-width:1.25}.low{fill:#56b4e9;stroke:#fff;stroke-width:2}.mid{fill:#0072b2;stroke:#fff;stroke-width:2}.high{fill:#d55e00;stroke:#fff;stroke-width:2}.selected{stroke:#17212b;stroke-width:2.5}.context{opacity:.55}.pair{stroke:#007f73;stroke-width:3;stroke-linecap:round}.other{stroke:#9aa5b1;stroke-width:1.5;stroke-dasharray:5 5}.cap{stroke:#007f73;stroke-width:2}.observed{fill:none;stroke:#007f73;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.reference{stroke:#52606d;stroke-width:3;stroke-dasharray:9 7}.envelope{fill:#b8c5d1;fill-opacity:.32}.axis{stroke:#52606d;stroke-width:1.5}.grid{stroke:#d9e2ec;stroke-width:1}.arrow{fill:none;stroke:#9aa5b1;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.legend{fill:#fff;fill-opacity:.96;stroke:#d9e2ec;stroke-width:1.1}
+</style>
+    <marker
+       id="arrowhead"
+       markerWidth="8"
+       markerHeight="8"
+       refX="7"
+       refY="4"
+       orient="auto">
+      <path
+         d="M0,0 L8,4 L0,8 Z"
+         fill="#9aa5b1"
+         id="path1" />
+    </marker>
+    <clipPath
+       id="c1">
+      <rect
+         x="40"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect1" />
+    </clipPath>
+    <clipPath
+       id="c2">
+      <rect
+         x="440"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect2" />
+    </clipPath>
+    <clipPath
+       id="c3">
+      <rect
+         x="840"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect3" />
+    </clipPath>
+  </defs>
+  <rect
+     width="1200"
+     height="720"
+     fill="#f5f7fa"
+     id="rect4" />
+  <text
+     x="48"
+     y="55"
+     class="title"
+     id="text4">How the mark correlation function works</text>
+  <text
+     x="48"
+     y="84"
+     class="subtitle"
+     id="text5"><tspan
+       x="48"
+       id="tspan4">This product-moment function asks whether point pairs at a given distance</tspan><tspan
+       x="48"
+       dy="22"
+       id="tspan5">have unusually large or small products of positive numerical marks.</tspan></text>
+  <rect
+     x="16"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect5" />
+  <rect
+     x="416"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect6" />
+  <rect
+     x="816"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect7" />
+  <path
+     d="M392 365 H408"
+     class="arrow"
+     marker-end="url(#arrowhead)"
+     id="path7" />
+  <path
+     d="M792 365 H808"
+     class="arrow"
+     marker-end="url(#arrowhead)"
+     id="path8" />
+  <!-- Step 1 -->
+  <circle
+     cx="44"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle8" />
+  <text
+     x="44"
+     y="160"
+     class="step-number"
+     id="text8">1</text>
+  <text
+     x="72"
+     y="166"
+     class="step-title"
+     id="text9">Attach a mark to each point</text>
+  <text
+     x="40"
+     y="194"
+     class="body"
+     id="text10"><tspan
+       x="40"
+       id="tspan9">A mark is a measured numerical attribute,</tspan><tspan
+       x="40"
+       dy="19"
+       id="tspan10">such as size, age, biomass, or intensity.</tspan></text>
+  <rect
+     x="40"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect10" />
+  <g
+     clip-path="url(#c1)"
+     id="g27">
+    <g
+       class="low"
+       id="g14">
+      <circle
+         cx="84"
+         cy="294"
+         r="6"
+         id="circle10" />
+      <circle
+         cx="265"
+         cy="267"
+         r="7"
+         id="circle11" />
+      <circle
+         cx="79"
+         cy="411"
+         r="6"
+         id="circle12" />
+      <circle
+         cx="187"
+         cy="430"
+         r="7"
+         id="circle13" />
+      <circle
+         cx="309"
+         cy="249"
+         r="6"
+         id="circle14" />
+    </g>
+    <g
+       class="mid"
+       id="g20">
+      <circle
+         cx="167"
+         cy="286"
+         r="10"
+         id="circle15" />
+      <circle
+         cx="306"
+         cy="337"
+         r="9"
+         id="circle16" />
+      <circle
+         cx="124"
+         cy="365"
+         r="10"
+         id="circle17" />
+      <circle
+         cx="268"
+         cy="435"
+         r="11"
+         id="circle18" />
+      <circle
+         cx="109"
+         cy="315"
+         r="8"
+         id="circle19" />
+      <circle
+         cx="141"
+         cy="438"
+         r="8"
+         id="circle20" />
+    </g>
+    <g
+       class="high"
+       id="g24">
+      <circle
+         cx="214"
+         cy="333"
+         r="15"
+         id="circle21" />
+      <circle
+         cx="253"
+         cy="351"
+         r="17"
+         id="circle22" />
+      <circle
+         cx="220"
+         cy="390"
+         r="14"
+         id="circle23" />
+      <circle
+         cx="284"
+         cy="386"
+         r="16"
+         id="circle24" />
+    </g>
+    <!-- reserved legend -->
+    <rect
+       x="52.019249"
+       y="240.01924"
+       width="197.32695"
+       height="33.961506"
+       rx="7.5070038"
+       class="legend"
+       id="rect24" />
+    <circle
+       cx="69"
+       cy="257"
+       r="4"
+       class="low"
+       id="circle25" />
+    <text
+       x="78"
+       y="262"
+       class="tiny"
+       id="text25">lower</text>
+    <circle
+       cx="126"
+       cy="257"
+       r="7"
+       class="mid"
+       id="circle26" />
+    <text
+       x="137"
+       y="262"
+       class="tiny"
+       id="text26">middle</text>
+    <circle
+       cx="194"
+       cy="257"
+       r="10"
+       class="high"
+       id="circle27" />
+    <text
+       x="209"
+       y="262"
+       class="tiny"
+       id="text27">higher</text>
+  </g>
+  <line
+     x1="188"
+     y1="306"
+     x2="207"
+     y2="324"
+     stroke="#d55e00"
+     stroke-width="1.5"
+     id="line27" />
+  <text
+     x="137"
+     y="309"
+     class="direct-label"
+     fill="#b34e00"
+     id="text28"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">higher mark</text>
+  <line
+     x1="284"
+     y1="284"
+     x2="270"
+     y2="270"
+     stroke="#2468b4"
+     stroke-width="1.5"
+     id="line28" />
+  <text
+     x="270"
+     y="297"
+     class="direct-label"
+     fill="#2468b4"
+     id="text29"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">lower mark</text>
+  <rect
+     x="40"
+     y="508"
+     width="320"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect29" />
+  <text
+     x="58"
+     y="529"
+     class="body"
+     id="text31"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:14px;line-height:normal;font-family:system-ui, sans-serif;white-space:pre;inline-size:312.852"
+     xml:space="preserve"><tspan
+       x="58"
+       y="529"
+       id="tspan1">Size and color redundantly encode the </tspan><tspan
+       x="58"
+       y="546.49998"
+       id="tspan3">same positive numerical mark<tspan
+   style="font-size:12.5px;fill:#52606d"
+   id="tspan2">.</tspan></tspan></text>
+  <!-- Step 2 -->
+  <circle
+     cx="444"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle31" />
+  <text
+     x="444"
+     y="160"
+     class="step-number"
+     id="text32">2</text>
+  <text
+     x="472"
+     y="166"
+     class="step-title"
+     id="text33">Compare pairs near distance r</text>
+  <text
+     x="440"
+     y="194"
+     class="body"
+     id="text34"><tspan
+       x="440"
+       id="tspan33">Bin or smoothly weight pairs whose separation</tspan><tspan
+       x="440"
+       dy="19"
+       id="tspan34">is near r, then compare their mark products.</tspan></text>
+  <rect
+     x="440"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect34" />
+  <g
+     clip-path="url(#c2)"
+     id="g52">
+    <!-- same configuration translated +400 -->
+    <g
+       class="context"
+       id="g45">
+      <g
+         class="low"
+         id="g38">
+        <circle
+           cx="484"
+           cy="294"
+           r="6"
+           id="circle34" />
+        <circle
+           cx="665"
+           cy="267"
+           r="7"
+           id="circle35" />
+        <circle
+           cx="479"
+           cy="411"
+           r="6"
+           id="circle36" />
+        <circle
+           cx="587"
+           cy="430"
+           r="7"
+           id="circle37" />
+        <circle
+           cx="709"
+           cy="249"
+           r="6"
+           id="circle38" />
+      </g>
+      <g
+         class="mid"
+         id="g44">
+        <circle
+           cx="567"
+           cy="286"
+           r="10"
+           id="circle39" />
+        <circle
+           cx="706"
+           cy="337"
+           r="9"
+           id="circle40" />
+        <circle
+           cx="524"
+           cy="365"
+           r="10"
+           id="circle41" />
+        <circle
+           cx="668"
+           cy="435"
+           r="11"
+           id="circle42" />
+        <circle
+           cx="509"
+           cy="315"
+           r="8"
+           id="circle43" />
+        <circle
+           cx="541"
+           cy="438"
+           r="8"
+           id="circle44" />
+      </g>
+    </g>
+    <line
+       x1="614"
+       y1="333"
+       x2="653"
+       y2="351"
+       class="pair"
+       id="line45" />
+    <circle
+       cx="614"
+       cy="333"
+       r="15"
+       class="high selected"
+       id="circle45" />
+    <circle
+       cx="653"
+       cy="351"
+       r="17"
+       class="high selected"
+       id="circle46" />
+    <circle
+       cx="620"
+       cy="390"
+       r="14"
+       class="high context"
+       id="circle47" />
+    <circle
+       cx="684"
+       cy="386"
+       r="16"
+       class="high context"
+       id="circle48" />
+    <line
+       x1="610"
+       y1="340"
+       x2="618"
+       y2="326"
+       class="cap"
+       id="line48" />
+    <line
+       x1="649"
+       y1="358"
+       x2="657"
+       y2="344"
+       class="cap"
+       id="line49" />
+    <line
+       x1="484"
+       y1="294"
+       x2="509"
+       y2="315"
+       class="other"
+       id="line50" />
+    <line
+       x1="668"
+       y1="435"
+       x2="709"
+       y2="449"
+       class="other"
+       id="line51" />
+    <rect
+       x="470"
+       y="408"
+       width="108"
+       height="48"
+       rx="8"
+       fill="#fff"
+       stroke="#9fb3c8"
+       id="rect51" />
+    <text
+       x="524"
+       y="427"
+       class="small"
+       text-anchor="middle"
+       id="text51">pair product</text>
+    <text
+       x="524"
+       y="447"
+       class="formula"
+       text-anchor="middle"
+       id="text52">mᵢ × mⱼ</text>
+  </g>
+  <text
+     x="634"
+     y="306"
+     class="direct-label"
+     fill="#007f73"
+     text-anchor="middle"
+     id="text53">separation ≈ r</text>
+  <line
+     x1="598.60425"
+     y1="338.24899"
+     x2="598.41211"
+     y2="338.17072"
+     stroke="#d55e00"
+     stroke-width="0.010674"
+     id="line53" />
+  <text
+     x="490.98788"
+     y="339.13147"
+     class="direct-label"
+     fill="#b34e00"
+     id="text54"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">high–high pair</text>
+  <text
+     x="454"
+     y="477"
+     class="tiny"
+     id="text55"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:11.5px;line-height:normal;font-family:system-ui, sans-serif" />
+  <rect
+     x="440"
+     y="508"
+     width="320"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect55" />
+  <text
+     x="458"
+     y="527"
+     class="body"
+     id="text57"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:14px;line-height:normal;font-family:system-ui, sans-serif"><tspan
+       x="458"
+       id="tspan55">Average pair products near r, then divide</tspan><tspan
+       x="458"
+       dy="19"
+       id="tspan56">by μ², the squared overall mean mark.</tspan><tspan
+       x="458"
+       class="small"
+       id="tspan57"
+       style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">.</tspan></text>
+  <!-- Step 3 -->
+  <circle
+     cx="844"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle57" />
+  <text
+     x="844"
+     y="160"
+     class="step-number"
+     id="text58">3</text>
+  <text
+     x="872"
+     y="166"
+     class="step-title"
+     id="text59">Compare with random marking</text>
+  <text
+     x="840"
+     y="194"
+     class="body"
+     id="text60"><tspan
+       x="840"
+       id="tspan59">Under independent random marking, the</tspan><tspan
+       x="840"
+       dy="19"
+       id="tspan60">product-moment reference is kₘₘ(r) = 1.</tspan></text>
+  <rect
+     x="840"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect60" />
+  <g
+     clip-path="url(#c3)"
+     id="g66">
+    <g
+       class="grid"
+       id="g65">
+      <line
+         x1="888"
+         y1="278"
+         x2="1134"
+         y2="278"
+         id="line60" />
+      <line
+         x1="888"
+         y1="355"
+         x2="1134"
+         y2="355"
+         id="line61" />
+      <line
+         x1="888"
+         y1="432"
+         x2="1134"
+         y2="432"
+         id="line62" />
+      <line
+         x1="949"
+         y1="250"
+         x2="949"
+         y2="456"
+         id="line63" />
+      <line
+         x1="1010"
+         y1="250"
+         x2="1010"
+         y2="456"
+         id="line64" />
+      <line
+         x1="1071"
+         y1="250"
+         x2="1071"
+         y2="456"
+         id="line65" />
+    </g>
+    <path
+       class="envelope"
+       d="M888 342 C934 337,980 340,1025 342 C1070 344,1110 341,1134 343 L1134 367 C1110 369,1070 366,1025 368 C980 370,934 367,888 368 Z"
+       id="path65" />
+    <line
+       x1="888"
+       y1="355"
+       x2="1134"
+       y2="355"
+       class="reference"
+       id="line66" />
+    <path
+       d="M888 355 C914 327,940 286,966 270 C994 253,1021 278,1045 313 C1068 346,1094 357,1134 353"
+       class="observed"
+       id="path66" />
+  </g>
+  <line
+     x1="888"
+     y1="456"
+     x2="1140"
+     y2="456"
+     class="axis"
+     id="line67" />
+  <line
+     x1="888"
+     y1="456"
+     x2="888"
+     y2="247"
+     class="axis"
+     id="line68" />
+  <text
+     x="1010"
+     y="479"
+     class="axis-label"
+     text-anchor="middle"
+     id="text68">distance r</text>
+  <text
+     x="858"
+     y="354"
+     class="axis-label"
+     text-anchor="middle"
+     transform="rotate(-90 858 354)"
+     id="text69">product-moment kₘₘ(r)</text>
+  <line
+     x1="882"
+     y1="355"
+     x2="888"
+     y2="355"
+     class="axis"
+     id="line69" />
+  <text
+     x="877"
+     y="360"
+     class="small"
+     text-anchor="end"
+     id="text70">1</text>
+  <text
+     x="894.59882"
+     y="254.91617"
+     class="direct-label"
+     fill="#007f73"
+     id="text71"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">observed kₘₘ(r)</text>
+  <line
+     x1="1075.3068"
+     y1="411.08142"
+     x2="1026.7144"
+     y2="357.28271"
+     stroke="#52606d"
+     stroke-width="2.60316"
+     id="line71" />
+  <text
+     x="902.34729"
+     y="424.90421"
+     class="direct-label"
+     fill="#52606d"
+     id="text72"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">random-marking reference = 1</text>
+  <rect
+     x="899.479"
+     y="373.19159"
+     width="128"
+     height="25"
+     rx="6"
+     fill="#ffffff"
+     fill-opacity="0.92"
+     stroke="#c5d0da"
+     id="rect72" />
+  <text
+     x="963.479"
+     y="390.19159"
+     class="small"
+     text-anchor="middle"
+     id="text73"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">simulation envelope</text>
+  <rect
+     x="840"
+     y="508"
+     width="320"
+     height="88"
+     rx="9"
+     class="callout"
+     id="rect73" />
+  <circle
+     cx="857"
+     cy="522"
+     r="5"
+     fill="#007f73"
+     id="circle73" />
+  <text
+     x="870"
+     y="526"
+     class="small"
+     id="text74"><tspan
+       x="870"
+       id="tspan73">Above envelope → unusually large</tspan><tspan
+       x="870"
+       dy="16"
+       id="tspan74">pairwise mark products at those distances</tspan></text>
+  <path
+     d="M852 559 H862"
+     stroke="#52606d"
+     stroke-width="2.5"
+     stroke-dasharray="4 3"
+     id="path74" />
+  <text
+     x="870"
+     y="563"
+     class="small"
+     id="text76"><tspan
+       x="870"
+       id="tspan75">Below envelope → unusually small</tspan><tspan
+       x="870"
+       dy="16"
+       id="tspan76">pairwise mark products at those distances</tspan></text>
+  <!-- Footer -->
+  <line
+     x1="48"
+     y1="640"
+     x2="1152"
+     y2="640"
+     stroke="#d9e2ec"
+     stroke-width="1.5"
+     id="line76" />
+  <text
+     x="48"
+     y="659"
+     class="formula"
+     id="text79"><tspan
+       x="48"
+       id="tspan77">k</tspan><tspan
+       baseline-shift="sub"
+       font-size="10"
+       id="tspan78">mm</tspan><tspan
+       baseline-shift="baseline"
+       id="tspan79">(r) = E[mᵢmⱼ | dᵢⱼ ≈ r] / μ²</tspan></text>
+  <text
+     x="48"
+     y="682"
+     class="small"
+     id="text80">μ is the overall mean mark. This function measures product magnitude, not generic similarity.</text>
+  <text
+     x="1152"
+     y="652"
+     class="small"
+     text-anchor="end"
+     id="text82"><tspan
+       x="1152"
+       id="tspan80">Interpret departures at the distances where they occur.</tspan><tspan
+       x="1152"
+       dy="18"
+       id="tspan81">Use edge correction and simulation envelopes.</tspan><tspan
+       x="1152"
+       dy="18"
+       id="tspan82">For similarity, consider a mark variogram.</tspan></text>
+</svg>

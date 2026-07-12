@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1200"
+   height="720"
+   viewBox="0 0 1200 720"
+   role="img"
+   aria-labelledby="svg-title svg-desc"
+   version="1.1"
+   id="svg82"
+   sodipodi:docname="cross-k.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview82"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.43588921"
+     inkscape:cx="342.97706"
+     inkscape:cy="344.12414"
+     inkscape:window-width="1448"
+     inkscape:window-height="571"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg82" />
+  <title
+     id="svg-title">How the cross-K function describes relationships between two point types</title>
+  <desc
+     id="svg-desc">A three-step scientific diagram. Two point types are identified; type B neighbors within distance r of each type A point are counted, normalized by B intensity, and edge-corrected; then the observed cross-K curve is compared with the null expectation pi r squared and a simulation envelope under stationary spatial independence. Values beyond the envelope indicate unusually many or few cross-type neighbors.</desc>
+  <defs
+     id="defs3">
+    <style
+       id="style1">
+.title{font:700 30px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#17212b}.subtitle{font:400 16px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#52606d}.step-number{font:700 16px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central}.step-title{font:700 18px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#17212b}.body{font:400 15px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#3e4c59}.small{font:400 13px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#52606d}.axis-label{font:600 14px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#364152}.direct-label{font:700 13px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;paint-order:stroke fill;stroke:#fff;stroke-width:4px;stroke-linejoin:round}.formula{font:600 14px Georgia,&quot;Times New Roman&quot;,serif;fill:#263238}.panel{fill:#fff;stroke:#d9e2ec;stroke-width:1.5}.plot-bg{fill:#f8fafc;stroke:#bcccdc;stroke-width:1.5}.callout{fill:#f0f7ff;stroke:#9fb3c8;stroke-width:1.25}.type-a{fill:#2468b4;stroke:#fff;stroke-width:2}.type-b{fill:#d55e00;stroke:#fff;stroke-width:2}.type-a-focus{fill:#2468b4;stroke:#17212b;stroke-width:2.5}.type-b-counted{fill:#d55e00;stroke:#17212b;stroke-width:2.5}.radius-area{fill:#e69f00;fill-opacity:.13;stroke:#b87300;stroke-width:2;stroke-dasharray:7 6}.radius-line{stroke:#8f5d00;stroke-width:2}.count-link{fill:none;stroke:#d55e00;stroke-width:1.75;stroke-opacity:.75}.observed-line{fill:none;stroke:#007f73;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.independence-line{fill:none;stroke:#52606d;stroke-width:3;stroke-dasharray:9 7;stroke-linecap:round}.envelope{fill:#b8c5d1;fill-opacity:.32;stroke:none}.axis{stroke:#52606d;stroke-width:1.5}.grid{stroke:#d9e2ec;stroke-width:1}.arrow{fill:none;stroke:#9aa5b1;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.muted{opacity:.48}
+</style>
+    <marker
+       id="arrowhead"
+       markerWidth="8"
+       markerHeight="8"
+       refX="7"
+       refY="4"
+       orient="auto">
+      <path
+         d="M0,0 L8,4 L0,8 Z"
+         fill="#9aa5b1"
+         id="path1" />
+    </marker>
+    <clipPath
+       id="pattern-clip">
+      <rect
+         x="56"
+         y="232"
+         width="288"
+         height="254"
+         rx="8"
+         id="rect1" />
+    </clipPath>
+    <clipPath
+       id="count-clip">
+      <rect
+         x="456"
+         y="232"
+         width="288"
+         height="254"
+         rx="8"
+         id="rect2" />
+    </clipPath>
+    <clipPath
+       id="graph-clip">
+      <rect
+         x="856"
+         y="232"
+         width="288"
+         height="254"
+         rx="8"
+         id="rect3" />
+    </clipPath>
+  </defs>
+  <rect
+     width="1200"
+     height="720"
+     fill="#f5f7fa"
+     id="rect4" />
+  <text
+     x="48"
+     y="55"
+     class="title"
+     id="text4">How the cross-K function works</text>
+  <text
+     x="48"
+     y="84"
+     class="subtitle"
+     id="text5"><tspan
+       x="48"
+       id="tspan4">It asks whether points of type B occur unusually near—or far from—</tspan><tspan
+       x="48"
+       dy="22"
+       id="tspan5">points of type A across a range of distances.</tspan></text>
+  <rect
+     x="32"
+     y="125"
+     width="336"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect5" />
+  <rect
+     x="432"
+     y="125"
+     width="336"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect6" />
+  <rect
+     x="832"
+     y="125"
+     width="336"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect7" />
+  <path
+     d="M380 365 H416"
+     class="arrow"
+     marker-end="url(#arrowhead)"
+     id="path7" />
+  <path
+     d="M780 365 H816"
+     class="arrow"
+     marker-end="url(#arrowhead)"
+     id="path8" />
+  <!-- STEP 1 -->
+  <circle
+     cx="60"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle8" />
+  <text
+     x="60"
+     y="160"
+     class="step-number"
+     id="text8">1</text>
+  <text
+     x="88"
+     y="166"
+     class="step-title"
+     id="text9">Identify two point types</text>
+  <text
+     x="56"
+     y="196"
+     class="body"
+     id="text10"><tspan
+       x="56"
+       id="tspan9">Each location belongs to type A</tspan><tspan
+       x="56"
+       dy="20"
+       id="tspan10">or type B.</tspan></text>
+  <rect
+     x="56"
+     y="232"
+     width="288"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect10" />
+  <g
+     clip-path="url(#pattern-clip)"
+     id="g26">
+    <circle
+       cx="96"
+       cy="295"
+       r="8"
+       class="type-a"
+       id="circle10" />
+    <circle
+       cx="161"
+       cy="320"
+       r="8"
+       class="type-a"
+       id="circle11" />
+    <circle
+       cx="229"
+       cy="283"
+       r="8"
+       class="type-a"
+       id="circle12" />
+    <circle
+       cx="305"
+       cy="314"
+       r="8"
+       class="type-a"
+       id="circle13" />
+    <circle
+       cx="115"
+       cy="389"
+       r="8"
+       class="type-a"
+       id="circle14" />
+    <circle
+       cx="204"
+       cy="416"
+       r="8"
+       class="type-a"
+       id="circle15" />
+    <circle
+       cx="292"
+       cy="392"
+       r="8"
+       class="type-a"
+       id="circle16" />
+    <circle
+       cx="72"
+       cy="362"
+       r="8"
+       class="type-a"
+       id="circle17" />
+    <g
+       class="type-b"
+       id="g24">
+      <rect
+         x="119"
+         y="276"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 125.5 282.5)"
+         id="rect17" />
+      <rect
+         x="174"
+         y="347"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 180.5 353.5)"
+         id="rect18" />
+      <rect
+         x="242"
+         y="302"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 248.5 308.5)"
+         id="rect19" />
+      <rect
+         x="315"
+         y="340"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 321.5 346.5)"
+         id="rect20" />
+      <rect
+         x="88"
+         y="421"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 94.5 427.5)"
+         id="rect21" />
+      <rect
+         x="221"
+         y="390"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 227.5 396.5)"
+         id="rect22" />
+      <rect
+         x="310"
+         y="432"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 316.5 438.5)"
+         id="rect23" />
+      <rect
+         x="270"
+         y="448"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 276.5 454.5)"
+         id="rect24" />
+    </g>
+    <!-- reserved legend area -->
+    <rect
+       x="68"
+       y="242"
+       width="174"
+       height="30"
+       rx="7"
+       fill="#fff"
+       fill-opacity=".96"
+       stroke="#d9e2ec"
+       id="rect25" />
+    <circle
+       cx="85"
+       cy="257"
+       r="7"
+       class="type-a"
+       id="circle25" />
+    <text
+       x="98"
+       y="262"
+       class="small"
+       id="text25">type A</text>
+    <rect
+       x="157"
+       y="250"
+       width="13"
+       height="13"
+       rx="1"
+       class="type-b"
+       transform="rotate(45 163.5 256.5)"
+       id="rect26" />
+    <text
+       x="176"
+       y="262"
+       class="small"
+       id="text26">type B</text>
+  </g>
+  <rect
+     x="56"
+     y="508"
+     width="288"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect27" />
+  <text
+     x="72"
+     y="531"
+     class="body"
+     id="text28"><tspan
+       x="72"
+       id="tspan27">Cross-K describes the spatial</tspan><tspan
+       x="72"
+       dy="21"
+       id="tspan28">relationship between the two types.</tspan></text>
+  <!-- STEP 2 -->
+  <circle
+     cx="460"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle28" />
+  <text
+     x="460"
+     y="160"
+     class="step-number"
+     id="text29">2</text>
+  <text
+     x="488"
+     y="166"
+     class="step-title"
+     id="text30">Count B around each A</text>
+  <text
+     x="456"
+     y="196"
+     class="body"
+     id="text31"><tspan
+       x="456"
+       id="tspan30">For every type A point, count type B</tspan><tspan
+       x="456"
+       dy="20"
+       id="tspan31">points within distance r.</tspan></text>
+  <rect
+     x="456"
+     y="232"
+     width="288"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect31" />
+  <g
+     clip-path="url(#count-clip)"
+     id="g45">
+    <circle
+       cx="585"
+       cy="355"
+       r="82"
+       class="radius-area"
+       id="circle31" />
+    <g
+       class="count-link"
+       id="g34">
+      <line
+         x1="585"
+         y1="355"
+         x2="530"
+         y2="313"
+         id="line31" />
+      <line
+         x1="585"
+         y1="355"
+         x2="627"
+         y2="307"
+         id="line32" />
+      <line
+         x1="585"
+         y1="355"
+         x2="646"
+         y2="381"
+         id="line33" />
+      <line
+         x1="585"
+         y1="355"
+         x2="559"
+         y2="417"
+         id="line34" />
+    </g>
+    <g
+       class="muted"
+       id="g37">
+      <circle
+         cx="510"
+         cy="384"
+         r="8"
+         class="type-a"
+         id="circle34" />
+      <circle
+         cx="608"
+         cy="430"
+         r="8"
+         class="type-a"
+         id="circle35" />
+      <circle
+         cx="687"
+         cy="276"
+         r="8"
+         class="type-a"
+         id="circle36" />
+      <circle
+         cx="482"
+         cy="254"
+         r="8"
+         class="type-a"
+         id="circle37" />
+    </g>
+    <circle
+       cx="585"
+       cy="355"
+       r="10"
+       class="type-a-focus"
+       id="circle38" />
+    <g
+       class="type-b-counted"
+       id="g41">
+      <rect
+         x="523.5"
+         y="306.5"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 530 313)"
+         id="rect38" />
+      <rect
+         x="620.5"
+         y="300.5"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 627 307)"
+         id="rect39" />
+      <rect
+         x="639.5"
+         y="374.5"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 646 381)"
+         id="rect40" />
+      <rect
+         x="552.5"
+         y="410.5"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 559 417)"
+         id="rect41" />
+    </g>
+    <g
+       class="muted type-b"
+       id="g44">
+      <rect
+         x="687.5"
+         y="422.5"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 694 429)"
+         id="rect42" />
+      <rect
+         x="474.5"
+         y="444.5"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 481 451)"
+         id="rect43" />
+      <rect
+         x="472.5"
+         y="289.5"
+         width="13"
+         height="13"
+         rx="1"
+         transform="rotate(45 479 296)"
+         id="rect44" />
+    </g>
+    <line
+       x1="585"
+       y1="355"
+       x2="667"
+       y2="355"
+       class="radius-line"
+       id="line44" />
+    <line
+       x1="667"
+       y1="349"
+       x2="667"
+       y2="361"
+       class="radius-line"
+       id="line45" />
+    <text
+       x="626"
+       y="345"
+       class="direct-label"
+       fill="#8f5d00"
+       id="text45">r</text>
+  </g>
+  <line
+     x1="548"
+     y1="270"
+     x2="534"
+     y2="305"
+     stroke="#d55e00"
+     stroke-width="1.5"
+     id="line46" />
+  <text
+     x="520"
+     y="253"
+     class="direct-label"
+     fill="#b34e00"
+     id="text47"><tspan
+       x="520"
+       id="tspan46">type B:</tspan><tspan
+       x="520"
+       dy="17"
+       id="tspan47">counted</tspan></text>
+  <line
+     x1="624.65057"
+     y1="268.827"
+     x2="587.43231"
+     y2="344.23788"
+     stroke="#2468b4"
+     stroke-width="1.5"
+     id="line47" />
+  <text
+     x="622.32776"
+     y="253.22803"
+     class="direct-label"
+     fill="#2468b4"
+     id="text49"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:13px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif"><tspan
+       x="622.32776"
+       id="tspan48">focal</tspan><tspan
+       x="622.32776"
+       dy="17"
+       id="tspan49">type A</tspan></text>
+  <line
+     x1="641"
+     y1="446"
+     x2="688"
+     y2="432"
+     stroke="#52606d"
+     stroke-width="1.5"
+     id="line49" />
+  <text
+     x="613"
+     y="448"
+     class="direct-label"
+     fill="#52606d"
+     id="text50">outside r</text>
+  <rect
+     x="515"
+     y="458"
+     width="155"
+     height="23"
+     rx="11"
+     fill="#fff"
+     stroke="#d9e2ec"
+     id="rect50" />
+  <text
+     x="592.5"
+     y="474"
+     class="small"
+     text-anchor="middle"
+     fill="#3e4c59"
+     id="text51">4 B neighbors within r</text>
+  <rect
+     x="456"
+     y="508"
+     width="288"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect51" />
+  <text
+     x="468"
+     y="524"
+     class="body"
+     id="text53"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:15px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif"><tspan
+       sodipodi:role="line"
+       id="tspan86"
+       x="468"
+       y="524"><tspan
+         x="468"
+         id="tspan51">Repeat for every A point; normalize</tspan></tspan><tspan
+       sodipodi:role="line"
+       x="468"
+       y="542.75"
+       id="tspan88"><tspan
+         x="468"
+         id="tspan89">by B intensity and apply edge</tspan></tspan><tspan
+       sodipodi:role="line"
+       x="468"
+       y="561.5"
+       id="tspan90"><tspan
+         x="468"
+         dy="0 0 0 0 0 0 0 0 0 0 0 0"
+         id="tspan91">correction.Evaluate across many</tspan></tspan><tspan
+       sodipodi:role="line"
+       x="468"
+       y="580.25"
+       id="tspan92"><tspan
+         x="468"
+         id="tspan93">values of r.</tspan></tspan></text>
+  <!-- STEP 3 -->
+  <circle
+     cx="860"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle53" />
+  <text
+     x="860"
+     y="160"
+     class="step-number"
+     id="text54">3</text>
+  <text
+     x="888"
+     y="166"
+     class="step-title"
+     id="text55">Compare with a null model</text>
+  <text
+     x="856"
+     y="196"
+     class="body"
+     id="text58"><tspan
+       x="856"
+       id="tspan55">Under stationary spatial independence</tspan><tspan
+       x="856"
+       dy="20"
+       id="tspan58">in 2D, K<tspan
+   baseline-shift="sub"
+   font-size="11"
+   id="tspan56">AB</tspan><tspan
+   baseline-shift="baseline"
+   id="tspan57">(r) = πr².</tspan></tspan></text>
+  <rect
+     x="856"
+     y="232"
+     width="288"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect58" />
+  <g
+     clip-path="url(#graph-clip)"
+     id="g65">
+    <g
+       class="grid"
+       id="g63">
+      <line
+         x1="900"
+         y1="424"
+         x2="1120"
+         y2="424"
+         id="line58" />
+      <line
+         x1="900"
+         y1="362"
+         x2="1120"
+         y2="362"
+         id="line59" />
+      <line
+         x1="900"
+         y1="300"
+         x2="1120"
+         y2="300"
+         id="line60" />
+      <line
+         x1="955"
+         y1="245"
+         x2="955"
+         y2="456"
+         id="line61" />
+      <line
+         x1="1010"
+         y1="245"
+         x2="1010"
+         y2="456"
+         id="line62" />
+      <line
+         x1="1065"
+         y1="245"
+         x2="1065"
+         y2="456"
+         id="line63" />
+    </g>
+    <path
+       class="envelope"
+       d="M900 450 C940 444 979 423 1015 386 C1052 347 1087 294 1120 238 L1120 260 C1087 328 1052 377 1015 410 C979 442 940 458 900 462 Z"
+       id="path63" />
+    <path
+       d="M900 456 C940 451 979 432 1015 398 C1052 362 1087 311 1120 248"
+       class="independence-line"
+       id="path64" />
+    <path
+       d="M900 456 C927 446 948 418 970 382 C994 343 1019 309 1047 285 C1075 261 1098 249 1120 243"
+       class="observed-line"
+       id="path65" />
+  </g>
+  <line
+     x1="900"
+     y1="456"
+     x2="1127"
+     y2="456"
+     class="axis"
+     id="line65" />
+  <line
+     x1="900"
+     y1="456"
+     x2="900"
+     y2="242"
+     class="axis"
+     id="line66" />
+  <text
+     x="1010"
+     y="479"
+     class="axis-label"
+     text-anchor="middle"
+     id="text66">distance r</text>
+  <text
+     x="872"
+     y="354"
+     class="axis-label"
+     text-anchor="middle"
+     transform="rotate(-90 872 354)"
+     id="text67">K<tspan
+   baseline-shift="sub"
+   font-size="10"
+   id="tspan66">AB</tspan><tspan
+   baseline-shift="baseline"
+   id="tspan67">(r)</tspan></text>
+  <line
+     x1="1010"
+     y1="268"
+     x2="1047"
+     y2="285"
+     stroke="#007f73"
+     stroke-width="1.5"
+     id="line67" />
+  <text
+     x="914"
+     y="258"
+     class="direct-label"
+     fill="#007f73"
+     id="text69">observed K<tspan
+   baseline-shift="sub"
+   font-size="10"
+   id="tspan68">AB</tspan><tspan
+   baseline-shift="baseline"
+   id="tspan69">(r)</tspan></text>
+  <line
+     x1="1040.1606"
+     y1="442.72485"
+     x2="1015.1114"
+     y2="398.75287"
+     stroke="#52606d"
+     stroke-width="1.5"
+     id="line69" />
+  <text
+     x="981.95416"
+     y="446.81812"
+     class="direct-label"
+     fill="#52606d"
+     id="text70"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:13px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif">null expectation: πr²</text>
+  <text
+     x="1071"
+     y="396"
+     class="small"
+     text-anchor="middle"
+     id="text71"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:13px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif"><tspan
+       sodipodi:role="line"
+       id="tspan83"
+       x="1071"
+       y="396">simulation</tspan><tspan
+       sodipodi:role="line"
+       id="tspan84"
+       x="1071"
+       y="412.25">envelope</tspan></text>
+  <rect
+     x="856"
+     y="508"
+     width="288"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect71" />
+  <circle
+     cx="873"
+     cy="527"
+     r="5"
+     fill="#007f73"
+     id="circle71" />
+  <text
+     x="886"
+     y="531"
+     class="small"
+     id="text72"><tspan
+       x="886"
+       id="tspan71">Above envelope → unusually many</tspan><tspan
+       x="886"
+       dy="17"
+       id="tspan72">cross-type neighbors</tspan></text>
+  <path
+     d="M868 564 H878"
+     stroke="#52606d"
+     stroke-width="2.5"
+     stroke-dasharray="4 3"
+     id="path72" />
+  <text
+     x="886"
+     y="569"
+     class="small"
+     id="text73">Below envelope → unusually few</text>
+  <!-- FOOTER -->
+  <line
+     x1="48"
+     y1="640"
+     x2="1152"
+     y2="640"
+     stroke="#d9e2ec"
+     stroke-width="1.5"
+     id="line73" />
+  <text
+     x="48"
+     y="662"
+     class="formula"
+     id="text76"><tspan
+       x="48"
+       id="tspan75">K<tspan
+   baseline-shift="sub"
+   font-size="10"
+   id="tspan73">AB</tspan><tspan
+   baseline-shift="baseline"
+   id="tspan74">(r) is the expected number of B points within r of a typical A point,</tspan></tspan><tspan
+       x="48"
+       dy="20"
+       id="tspan76">divided by B’s overall intensity.</tspan></text>
+  <text
+     x="1152"
+     y="662"
+     class="small"
+     text-anchor="end"
+     id="text82"><tspan
+       x="1152"
+       id="tspan81">Finite-sample K<tspan
+   baseline-shift="sub"
+   font-size="10"
+   id="tspan77">AB</tspan><tspan
+   baseline-shift="baseline"
+   id="tspan78"> and K</tspan><tspan
+   baseline-shift="sub"
+   font-size="10"
+   id="tspan79">BA</tspan><tspan
+   baseline-shift="baseline"
+   id="tspan80"> estimates can differ.</tspan></tspan><tspan
+       x="1152"
+       dy="19"
+       id="tspan82">Use edge correction, an appropriate null model, and envelopes.</tspan></text>
+</svg>

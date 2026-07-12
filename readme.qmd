@@ -335,7 +335,9 @@ stat_chull(aes(x = x, y = y, fill = zone, group = zone),
 
 ## Step 1: Kernel Density Estimation
 
-KDE estimates the continuous intensity surface of each artefact type — answering *where on the landscape is each type most concentrated?* We use Diggle's cross-validated bandwidth selector (`bw.diggle`) for data-driven smoothing.
+KDE estimates the continuous intensity surface of each artefact type, answering *where on the landscape is each type most concentrated?* We use Diggle's cross-validated bandwidth selector (`bw.diggle`) for data-driven smoothing.
+
+![](figures/kde.svg)
 
 ```{r kde-function}
 # Helper: compute KDE and return a ggplot-ready data frame
@@ -396,9 +398,12 @@ p_kde_h + p_kde_c +
 
 ---
 
-## Step 2: Ripley's K — Testing for Global Clustering
+## Step 2: Ripley's K: Testing for Global Clustering
 
 Ripley's K function counts the expected number of additional artefacts within distance *r* of a randomly chosen artefact, compared to complete spatial randomness (CSR). Deviation above the Poisson expectation K(r) = πr² indicates clustering.
+
+![](figures/ripleys-k.svg)
+
 
 ```{r ripley-k}
 set.seed(42)
@@ -451,6 +456,8 @@ $$G(r) = P(d_{\text{nn}} \leq r)$$
 
 Under CSR: $G_{\text{CSR}}(r) = 1 - e^{-\lambda \pi r^2}$
 
+![](figures/g-function.svg)
+
 ```{r g-function}
 set.seed(42)
 
@@ -498,6 +505,8 @@ ggplot(env_g_df, aes(x = r)) +
 ## Step 4: Cross-K Analysis — Bivariate Spatial Interaction
 
 Cross-K extends Ripley's K to **pairs of different artefact types**: does type *i* attract, repel, or ignore type *j*? Values above πr² indicate attraction (co-occurrence); values below indicate inhibition (segregation). We test three ecologically meaningful pairs.
+
+![](figures/cross-k.svg)
 
 ### 4a. Core ~ Flake (Knapping Activity)
 
@@ -650,6 +659,8 @@ $$k_{mm}(r) = \frac{\mathbb{E}[\,m(x) \cdot m(y) \mid \|x - y\| = r\,]}{\mathbb{
 
 Values above 1 at short distances indicate that nearby artefacts are more similar in size than chance.
 
+![](figures/mark-correlation.svg)
+
 ```{r mark-correlation}
 set.seed(42)
 
@@ -712,9 +723,11 @@ cat(sprintf(
 
 ---
 
-## Step 6: Unsupervised ML — DBSCAN
+## Step 6: Unsupervised ML: DBSCAN
 
 DBSCAN (Density-Based Spatial Clustering of Applications with Noise) identifies clusters as regions of high point density, without requiring the number of clusters to be specified in advance. The key parameters are **ε** (neighbourhood radius) and **minPts** (minimum neighbours to form a core point). Points that cannot be assigned to any cluster are labelled noise.
+
+![](figures/dbscan.svg)
 
 ### Selecting ε with the k-NN Distance Plot
 
@@ -803,9 +816,11 @@ p_truth_db + p_dbscan +
 
 ---
 
-## Step 7: Supervised ML — Random Forest Zone Classification
+## Step 7: Supervised ML: Random Forest Zone Classification
 
 DBSCAN asked "can an algorithm find zones blindly?" Supervised ML asks a harder question: **given only the local spatial composition around a point, can we predict which zone it belongs to?** A Random Forest classifier is trained on neighbourhood feature vectors and tested on held-out data.
+
+![](figures/random-forest.svg)
 
 ### Feature Engineering
 
@@ -1011,4 +1026,22 @@ This workshop has moved through a complete modern spatial data science workflow 
 
 **Key methodological takeaway:** No single method tells the full story. KDE locates density; Ripley's K tests whether clustering is significant; the G-function reveals its fine-scale texture; Cross-K identifies inter-type relationships; mark correlation links continuous attributes to space; DBSCAN finds zones without supervision; and Random Forest shows that the spatial signal is strong enough to be *learned* and *generalised*. Modern spatial data science is a toolkit, not a single test.
 
+### Further Reading
+
+Baddeley, Adrian, Ege Rubak, and Rolf Turner. (2015). _Spatial Point Patterns: Methodology and Applications with R._ Chapman & Hall/CRC.
+
+Boehmke, Bradley, and Brandon M. Greenwell. (2019). _Hands-On Machine Learning with R._ Chapman & Hall/CRC
+
+Brunsdon, C., & Comber, L. (2015). _An introduction to R for spatial analysis and mapping._ SAGE Publications.
+
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. (2021). _An Introduction to Statistical Learning: With Applications in R._ 2nd ed. Springer.
+
+Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. (2025). _Geocomputation with R._ 2nd ed. Chapman & Hall/CRC.
+
+Pebesma, Edzer, and Roger Bivand. 2023. _Spatial Data Science: With Applications in R._ Chapman & Hall/CRC.
+
+
+### Acknowledgements
+
+This workshop was developed with assistance from Claude Sonnet 4.6, Gemini 3.1 Pro, Kimi 2.6, and GPT 5.6.
 

@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1200"
+   height="720"
+   viewBox="0 0 1200 720"
+   role="img"
+   aria-labelledby="svg-title svg-desc"
+   version="1.1"
+   id="svg123"
+   sodipodi:docname="improved_spatial_kde.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview123"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.56459803"
+     inkscape:cx="607.51186"
+     inkscape:cy="341.83612"
+     inkscape:window-width="1344"
+     inkscape:window-height="609"
+     inkscape:window-x="154"
+     inkscape:window-y="83"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg123" />
+  <title
+     id="svg-title">How spatial kernel density estimation creates a continuous intensity surface</title>
+  <desc
+     id="svg-desc">A three-step scientific diagram explaining spatial kernel density estimation. The same eighteen observed event locations are shown throughout. First, events are represented as points. Second, every point receives a smooth kernel; three kernels are emphasized for clarity, and bandwidth controls smoothing. Third, the contributions are summed to create an illustrative continuous event-intensity surface. Values have units of events per unit area, not probability or risk. Edge correction and an appropriate exposure denominator may be needed.</desc>
+  <defs
+     id="defs9">
+    <style
+       id="style1">
+.title{font:700 30px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#17212b}.subtitle{font:400 16px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#52606d}.step-number{font:700 16px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central}.step-title{font:700 18px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#17212b}.body{font:400 14px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#3e4c59}.small{font:400 12.5px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#52606d}.tiny{font:400 11.5px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;fill:#52606d}.direct-label{font:700 12.5px system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;paint-order:stroke fill;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round}.formula{font:600 14px Georgia,&quot;Times New Roman&quot;,serif;fill:#263238}.panel{fill:#fff;stroke:#d9e2ec;stroke-width:1.5}.plot-bg{fill:#f8fafc;stroke:#bcccdc;stroke-width:1.5}.callout{fill:#f0f7ff;stroke:#9fb3c8;stroke-width:1.25}.point{fill:#2468b4;stroke:#fff;stroke-width:2}.point-muted{fill:#2468b4;fill-opacity:.42;stroke:#fff;stroke-width:1.5}.focus-point{fill:#d55e00;stroke:#fff;stroke-width:2.5}.kernel-outer{fill:url(#kernel-gradient);stroke:#b87300;stroke-width:1.5;stroke-dasharray:6 5}.kernel-profile{fill:#e69f00;fill-opacity:.18;stroke:#b87300;stroke-width:2}.baseline{stroke:#697386;stroke-width:1.4}.guide{stroke:#9aa5b1;stroke-width:1.2;stroke-dasharray:4 4}.bandwidth{stroke:#8f5d00;stroke-width:2}.contour-low{fill:#d9eef0;stroke:#70b7b2;stroke-width:1.3}.contour-medium{fill:#71b8b0;stroke:#238f86;stroke-width:1.3}.contour-high{fill:#007f73;stroke:#005f57;stroke-width:1.3}.contour-peak{fill:#e69f00;stroke:#a86500;stroke-width:1.3}.sample-point{fill:#17212b;stroke:#fff;stroke-width:1.3}.legend-outline{fill:#fff;fill-opacity:.96;stroke:#d9e2ec;stroke-width:1.1}.arrow{fill:none;stroke:#9aa5b1;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+    <marker
+       id="arrowhead"
+       markerWidth="8"
+       markerHeight="8"
+       refX="7"
+       refY="4"
+       orient="auto">
+      <path
+         d="M0,0 L8,4 L0,8 Z"
+         fill="#9aa5b1"
+         id="path1" />
+    </marker>
+    <radialGradient
+       id="kernel-gradient">
+      <stop
+         offset="0%"
+         stop-color="#d55e00"
+         stop-opacity=".25"
+         id="stop1" />
+      <stop
+         offset="45%"
+         stop-color="#e69f00"
+         stop-opacity=".14"
+         id="stop2" />
+      <stop
+         offset="100%"
+         stop-color="#e69f00"
+         stop-opacity=".02"
+         id="stop3" />
+    </radialGradient>
+    <linearGradient
+       id="density-gradient"
+       x1="0%"
+       y1="0%"
+       x2="100%"
+       y2="0%">
+      <stop
+         offset="0%"
+         stop-color="#d9eef0"
+         id="stop4" />
+      <stop
+         offset="45%"
+         stop-color="#71b8b0"
+         id="stop5" />
+      <stop
+         offset="75%"
+         stop-color="#007f73"
+         id="stop6" />
+      <stop
+         offset="100%"
+         stop-color="#e69f00"
+         id="stop7" />
+    </linearGradient>
+    <clipPath
+       id="points-clip">
+      <rect
+         x="40"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect7" />
+    </clipPath>
+    <clipPath
+       id="kernels-clip">
+      <rect
+         x="440"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect8" />
+    </clipPath>
+    <clipPath
+       id="surface-clip">
+      <rect
+         x="840"
+         y="232"
+         width="320"
+         height="254"
+         rx="8"
+         id="rect9" />
+    </clipPath>
+  </defs>
+  <rect
+     width="1200"
+     height="720"
+     fill="#f5f7fa"
+     id="rect10" />
+  <text
+     x="48"
+     y="55"
+     class="title"
+     id="text10">How spatial KDE works</text>
+  <text
+     x="48"
+     y="84"
+     class="subtitle"
+     id="text11"><tspan
+       x="48"
+       id="tspan10">Spatial kernel density estimation turns observed point locations into</tspan><tspan
+       x="48"
+       dy="22"
+       id="tspan11">a smooth surface of estimated event intensity.</tspan></text>
+  <rect
+     x="16"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect11" />
+  <rect
+     x="416"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect12" />
+  <rect
+     x="816"
+     y="125"
+     width="368"
+     height="490"
+     rx="16"
+     class="panel"
+     id="rect13" />
+  <path
+     d="M392 365 H408"
+     class="arrow"
+     marker-end="url(#arrowhead)"
+     id="path13" />
+  <path
+     d="M792 365 H808"
+     class="arrow"
+     marker-end="url(#arrowhead)"
+     id="path14" />
+  <!-- STEP 1 -->
+  <circle
+     cx="44"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle14" />
+  <text
+     x="44"
+     y="160"
+     class="step-number"
+     id="text14">1</text>
+  <text
+     x="72"
+     y="166"
+     class="step-title"
+     id="text15">Start with observed points</text>
+  <text
+     x="40"
+     y="190"
+     class="body"
+     id="text16"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:14px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif"><tspan
+       sodipodi:role="line"
+       id="tspan125"
+       x="40"
+       y="190"><tspan
+         x="40"
+         id="tspan15">Each point marks the location of an observed</tspan></tspan><tspan
+       sodipodi:role="line"
+       id="tspan126"
+       x="40"
+       y="207.5"><tspan
+         x="40"
+         id="tspan127"
+         dy="0 0 0 0 0">event. Nearby points indicate local</tspan></tspan><tspan
+       sodipodi:role="line"
+       x="40"
+       y="225"
+       id="tspan128"><tspan
+         x="40"
+         id="tspan129">concentration.</tspan></tspan></text>
+  <rect
+     x="40"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect16" />
+  <g
+     clip-path="url(#points-clip)"
+     id="g34">
+    <g
+       class="point"
+       id="g33">
+      <circle
+         cx="95"
+         cy="281"
+         r="7"
+         id="circle16" />
+      <circle
+         cx="122"
+         cy="263"
+         r="7"
+         id="circle17" />
+      <circle
+         cx="140"
+         cy="292"
+         r="7"
+         id="circle18" />
+      <circle
+         cx="108"
+         cy="315"
+         r="7"
+         id="circle19" />
+      <circle
+         cx="153"
+         cy="329"
+         r="7"
+         id="circle20" />
+      <circle
+         cx="127"
+         cy="350"
+         r="7"
+         id="circle21" />
+      <circle
+         cx="230"
+         cy="346"
+         r="7"
+         id="circle22" />
+      <circle
+         cx="257"
+         cy="326"
+         r="7"
+         id="circle23" />
+      <circle
+         cx="282"
+         cy="350"
+         r="7"
+         id="circle24" />
+      <circle
+         cx="248"
+         cy="377"
+         r="7"
+         id="circle25" />
+      <circle
+         cx="291"
+         cy="391"
+         r="7"
+         id="circle26" />
+      <circle
+         cx="187"
+         cy="258"
+         r="7"
+         id="circle27" />
+      <circle
+         cx="294"
+         cy="270"
+         r="7"
+         id="circle28" />
+      <circle
+         cx="183"
+         cy="391"
+         r="7"
+         id="circle29" />
+      <circle
+         cx="76"
+         cy="412"
+         r="7"
+         id="circle30" />
+      <circle
+         cx="134"
+         cy="454"
+         r="7"
+         id="circle31" />
+      <circle
+         cx="214"
+         cy="445"
+         r="7"
+         id="circle32" />
+      <circle
+         cx="307"
+         cy="455"
+         r="7"
+         id="circle33" />
+    </g>
+  </g>
+  <line
+     x1="70"
+     y1="258"
+     x2="89"
+     y2="276"
+     stroke="#2468b4"
+     stroke-width="1.5"
+     id="line34" />
+  <text
+     x="54"
+     y="250"
+     class="direct-label"
+     fill="#2468b4"
+     id="text34">observed event</text>
+  <text
+     x="171"
+     y="372"
+     class="direct-label"
+     fill="#b34e00"
+     id="text35"><tspan
+       x="171"
+       id="tspan34">many nearby</tspan><tspan
+       x="171"
+       dy="16"
+       id="tspan35">observations</tspan></text>
+  <rect
+     x="40"
+     y="508"
+     width="320"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect35" />
+  <text
+     x="58"
+     y="530"
+     class="body"
+     id="text38"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:14px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif"><tspan
+       x="58"
+       id="tspan36">The raw map shows event locations,</tspan><tspan
+       x="58"
+       dy="20"
+       id="tspan37">but not a continuous intensity surface.</tspan><tspan
+       x="58"
+       class="small"
+       id="tspan38"
+       style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif" /></text>
+  <!-- STEP 2 -->
+  <circle
+     cx="444"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle38" />
+  <text
+     x="444"
+     y="160"
+     class="step-number"
+     id="text39">2</text>
+  <text
+     x="472"
+     y="166"
+     class="step-title"
+     id="text40">Place a kernel on each point</text>
+  <text
+     x="440"
+     y="194"
+     class="body"
+     id="text41"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:14px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;white-space:pre;inline-size:328.093"
+     transform="translate(0,-2)"
+     xml:space="preserve"><tspan
+       x="440"
+       y="194"
+       id="tspan1">Each kernel is highest at its event location. Its </tspan><tspan
+       x="440"
+       y="211.5"
+       id="tspan2">contribution decreases smoothly with </tspan><tspan
+       x="440"
+       y="229"
+       id="tspan3">distance.
+</tspan></text>
+  <rect
+     x="440"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect41" />
+  <g
+     clip-path="url(#kernels-clip)"
+     id="g69">
+    <!-- same locations, translated +400; faint for context -->
+    <g
+       class="point-muted"
+       id="g58">
+      <circle
+         cx="495"
+         cy="281"
+         r="5"
+         id="circle41" />
+      <circle
+         cx="522"
+         cy="263"
+         r="5"
+         id="circle42" />
+      <circle
+         cx="540"
+         cy="292"
+         r="5"
+         id="circle43" />
+      <circle
+         cx="508"
+         cy="315"
+         r="5"
+         id="circle44" />
+      <circle
+         cx="553"
+         cy="329"
+         r="5"
+         id="circle45" />
+      <circle
+         cx="527"
+         cy="350"
+         r="5"
+         id="circle46" />
+      <circle
+         cx="630"
+         cy="346"
+         r="5"
+         id="circle47" />
+      <circle
+         cx="657"
+         cy="326"
+         r="5"
+         id="circle48" />
+      <circle
+         cx="682"
+         cy="350"
+         r="5"
+         id="circle49" />
+      <circle
+         cx="648"
+         cy="377"
+         r="5"
+         id="circle50" />
+      <circle
+         cx="691"
+         cy="391"
+         r="5"
+         id="circle51" />
+      <circle
+         cx="587"
+         cy="258"
+         r="5"
+         id="circle52" />
+      <circle
+         cx="694"
+         cy="270"
+         r="5"
+         id="circle53" />
+      <circle
+         cx="583"
+         cy="391"
+         r="5"
+         id="circle54" />
+      <circle
+         cx="476"
+         cy="412"
+         r="5"
+         id="circle55" />
+      <circle
+         cx="534"
+         cy="454"
+         r="5"
+         id="circle56" />
+      <circle
+         cx="614"
+         cy="445"
+         r="5"
+         id="circle57" />
+      <circle
+         cx="707"
+         cy="455"
+         r="5"
+         id="circle58" />
+    </g>
+    <!-- three example smooth kernels -->
+    <circle
+       cx="522"
+       cy="263"
+       r="54"
+       class="kernel-outer"
+       id="circle59" />
+    <circle
+       cx="553"
+       cy="329"
+       r="54"
+       class="kernel-outer"
+       id="circle60" />
+    <circle
+       cx="657"
+       cy="326"
+       r="54"
+       class="kernel-outer"
+       id="circle61" />
+    <circle
+       cx="522"
+       cy="263"
+       r="7"
+       class="focus-point"
+       id="circle62" />
+    <circle
+       cx="553"
+       cy="329"
+       r="7"
+       class="focus-point"
+       id="circle63" />
+    <circle
+       cx="657"
+       cy="326"
+       r="7"
+       class="focus-point"
+       id="circle64" />
+    <!-- profile strip -->
+    <line
+       x1="474"
+       y1="452"
+       x2="726"
+       y2="452"
+       class="baseline"
+       id="line64" />
+    <path
+       d="M482 452 C506 451,526 445,542 429 C558 413,571 382,584 365 C597 382,610 413,626 429 C642 445,662 451,686 452 Z"
+       class="kernel-profile"
+       id="path64" />
+    <line
+       x1="584"
+       y1="365"
+       x2="584"
+       y2="452"
+       class="guide"
+       id="line65" />
+    <line
+       x1="584"
+       y1="452"
+       x2="644"
+       y2="452"
+       class="bandwidth"
+       id="line66" />
+    <line
+       x1="584"
+       y1="446"
+       x2="584"
+       y2="458"
+       class="bandwidth"
+       id="line67" />
+    <line
+       x1="644"
+       y1="446"
+       x2="644"
+       y2="458"
+       class="bandwidth"
+       id="line68" />
+    <line
+       x1="644"
+       y1="425"
+       x2="644"
+       y2="452"
+       class="guide"
+       id="line69" />
+    <text
+       x="614"
+       y="443"
+       class="direct-label"
+       fill="#8f5d00"
+       text-anchor="middle"
+       id="text69">bandwidth h</text>
+  </g>
+  <line
+     x1="463"
+     y1="260"
+     x2="505"
+     y2="264"
+     stroke="#b87300"
+     stroke-width="1.5"
+     id="line70" />
+  <text
+     x="451"
+     y="252"
+     class="direct-label"
+     fill="#8f5d00"
+     id="text70">one smooth kernel</text>
+  <line
+     x1="699"
+     y1="340"
+     x2="671"
+     y2="331"
+     stroke="#d55e00"
+     stroke-width="1.5"
+     id="line71" />
+  <text
+     x="687"
+     y="359"
+     class="direct-label"
+     fill="#b34e00"
+     id="text71">overlap adds</text>
+  <text
+     x="452"
+     y="477"
+     class="tiny"
+     id="text72">Example kernel profile; every point receives a kernel.</text>
+  <rect
+     x="440"
+     y="508"
+     width="320"
+     height="76"
+     rx="9"
+     class="callout"
+     id="rect72" />
+  <text
+     x="458"
+     y="524"
+     class="small"
+     id="text75"><tspan
+       x="458"
+       id="tspan72">Small h preserves detail but may look noisy.</tspan><tspan
+       x="458"
+       dy="17"
+       id="tspan73">Large h produces broader, smoother patterns.</tspan><tspan
+       x="458"
+       dy="17"
+       id="tspan74">Bandwidth usually affects the result more</tspan><tspan
+       x="458"
+       dy="17"
+       id="tspan75">than the choice of kernel shape.</tspan></text>
+  <!-- STEP 3 -->
+  <circle
+     cx="844"
+     cy="160"
+     r="16"
+     fill="#2468b4"
+     id="circle75" />
+  <text
+     x="844"
+     y="160"
+     class="step-number"
+     id="text76">3</text>
+  <text
+     x="872"
+     y="166"
+     class="step-title"
+     id="text77">Add all contributions</text>
+  <text
+     x="840"
+     y="194"
+     class="body"
+     id="text78"><tspan
+       x="840"
+       id="tspan77">Sum all kernels at every location to estimate</tspan><tspan
+       x="840"
+       dy="19"
+       id="tspan78">a continuous event-intensity surface.</tspan></text>
+  <rect
+     x="840"
+     y="232"
+     width="320"
+     height="254"
+     rx="8"
+     class="plot-bg"
+     id="rect78" />
+  <g
+     clip-path="url(#surface-clip)"
+     id="g102">
+    <!-- illustrative contours aligned to same translated point pattern -->
+    <path
+       d="M855 270 C884 239,951 239,997 266 C1025 283,1034 318,1018 350 C1000 385,949 401,902 383 C860 367,838 321,855 270 Z"
+       class="contour-low"
+       id="path78" />
+    <path
+       d="M975 319 C1003 292,1060 293,1107 322 C1143 345,1160 394,1134 431 C1111 464,1057 476,1012 450 C977 430,958 356,975 319 Z"
+       class="contour-low"
+       id="path79" />
+    <path
+       d="M878 278 C901 253,948 252,980 274 C1003 290,1009 319,996 343 C980 369,941 379,908 363 C879 349,865 310,878 278 Z"
+       class="contour-medium"
+       id="path80" />
+    <path
+       d="M1000 337 C1023 314,1063 313,1098 337 C1125 356,1134 393,1114 417 C1094 441,1054 447,1024 429 C998 414,985 366,1000 337 Z"
+       class="contour-medium"
+       id="path81" />
+    <path
+       d="M900 291 C919 275,950 276,971 292 C987 305,988 326,975 340 C960 356,934 357,915 345 C897 334,891 306,900 291 Z"
+       class="contour-high"
+       id="path82" />
+    <path
+       d="M1021 354 C1040 338,1071 338,1092 355 C1108 369,1111 394,1096 409 C1080 425,1053 426,1035 414 C1018 402,1012 368,1021 354 Z"
+       class="contour-high"
+       id="path83" />
+    <ellipse
+       cx="938"
+       cy="318"
+       rx="22"
+       ry="18"
+       class="contour-peak"
+       id="ellipse83" />
+    <ellipse
+       cx="1064"
+       cy="383"
+       rx="22"
+       ry="18"
+       class="contour-peak"
+       id="ellipse84" />
+    <!-- same 18 event locations translated +800 -->
+    <g
+       class="sample-point"
+       id="g101">
+      <circle
+         cx="895"
+         cy="281"
+         r="4"
+         id="circle84" />
+      <circle
+         cx="922"
+         cy="263"
+         r="4"
+         id="circle85" />
+      <circle
+         cx="940"
+         cy="292"
+         r="4"
+         id="circle86" />
+      <circle
+         cx="908"
+         cy="315"
+         r="4"
+         id="circle87" />
+      <circle
+         cx="953"
+         cy="329"
+         r="4"
+         id="circle88" />
+      <circle
+         cx="927"
+         cy="350"
+         r="4"
+         id="circle89" />
+      <circle
+         cx="1030"
+         cy="346"
+         r="4"
+         id="circle90" />
+      <circle
+         cx="1057"
+         cy="326"
+         r="4"
+         id="circle91" />
+      <circle
+         cx="1082"
+         cy="350"
+         r="4"
+         id="circle92" />
+      <circle
+         cx="1048"
+         cy="377"
+         r="4"
+         id="circle93" />
+      <circle
+         cx="1091"
+         cy="391"
+         r="4"
+         id="circle94" />
+      <circle
+         cx="987"
+         cy="258"
+         r="4"
+         id="circle95" />
+      <circle
+         cx="1094"
+         cy="270"
+         r="4"
+         id="circle96" />
+      <circle
+         cx="983"
+         cy="391"
+         r="4"
+         id="circle97" />
+      <circle
+         cx="876"
+         cy="412"
+         r="4"
+         id="circle98" />
+      <circle
+         cx="934"
+         cy="454"
+         r="4"
+         id="circle99" />
+      <circle
+         cx="1014"
+         cy="445"
+         r="4"
+         id="circle100" />
+      <circle
+         cx="1107"
+         cy="455"
+         r="4"
+         id="circle101" />
+    </g>
+    <!-- reserved legend strip -->
+    <rect
+       x="965"
+       y="454"
+       width="180"
+       height="25"
+       rx="7"
+       class="legend-outline"
+       id="rect101" />
+    <text
+       x="974"
+       y="471"
+       class="tiny"
+       id="text101">low</text>
+    <rect
+       x="1002"
+       y="461"
+       width="105"
+       height="9"
+       rx="4.5"
+       fill="url(#density-gradient)"
+       id="rect102" />
+    <text
+       x="1114"
+       y="471"
+       class="tiny"
+       id="text102">high</text>
+  </g>
+  <line
+     x1="867"
+     y1="276"
+     x2="912"
+     y2="298"
+     stroke="#007f73"
+     stroke-width="1.5"
+     id="line102" />
+  <text
+     x="850"
+     y="267"
+     class="direct-label"
+     fill="#007f73"
+     id="text103">higher intensity</text>
+  <line
+     x1="1103"
+     y1="327"
+     x2="1079"
+     y2="370"
+     stroke="#8f5d00"
+     stroke-width="1.5"
+     id="line103" />
+  <text
+     x="1064"
+     y="320"
+     class="direct-label"
+     fill="#8f5d00"
+     id="text104">peak intensity</text>
+  <line
+     x1="998.04388"
+     y1="281.12015"
+     x2="1019.0439"
+     y2="261.12015"
+     stroke="#52606d"
+     stroke-width="1.5"
+     id="line104" />
+  <text
+     x="1020.7158"
+     y="259.99619"
+     class="direct-label"
+     fill="#52606d"
+     id="text105"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif">lower intensity</text>
+  <rect
+     x="840"
+     y="508"
+     width="320"
+     height="88"
+     rx="9"
+     class="callout"
+     id="rect106" />
+  <text
+     x="858"
+     y="524"
+     class="small"
+     id="text110"><tspan
+       x="858"
+       id="tspan106">Values are events per unit area—not probability.</tspan><tspan
+       x="858"
+       dy="16"
+       id="tspan107">High intensity may reflect more events,</tspan><tspan
+       x="858"
+       dy="16"
+       id="tspan108">greater exposure, or both.</tspan><tspan
+       x="858"
+       dy="16"
+       id="tspan109">Peaks are not cluster boundaries.</tspan><tspan
+       x="858"
+       dy="16"
+       id="tspan110">Risk requires an exposure denominator.</tspan></text>
+  <!-- FOOTER -->
+  <line
+     x1="48"
+     y1="640"
+     x2="1152"
+     y2="640"
+     stroke="#d9e2ec"
+     stroke-width="1.5"
+     id="line110" />
+  <text
+     x="48"
+     y="660"
+     class="formula"
+     id="text117"><tspan
+       x="48"
+       id="tspan111">In 2D with an isotropic normalized kernel: λ̂(s) = Σ</tspan><tspan
+       baseline-shift="sub"
+       font-size="10"
+       id="tspan112">i=1</tspan><tspan
+       baseline-shift="baseline"
+       id="tspan113">ⁿ [w</tspan><tspan
+       baseline-shift="sub"
+       font-size="10"
+       id="tspan114">i</tspan><tspan
+       baseline-shift="baseline"
+       id="tspan115">/h²] K((s − x</tspan><tspan
+       baseline-shift="sub"
+       font-size="10"
+       id="tspan116">i</tspan><tspan
+       baseline-shift="baseline"
+       id="tspan117">)/h)</tspan></text>
+  <text
+     x="48"
+     y="682"
+     class="small"
+     id="text120"><tspan
+       x="48"
+       id="tspan118">For unweighted events, w</tspan><tspan
+       baseline-shift="sub"
+       font-size="9"
+       id="tspan119">i</tspan><tspan
+       baseline-shift="baseline"
+       id="tspan120"> = 1. Bandwidth h controls smoothing; kernel choice also matters.</tspan></text>
+  <text
+     x="1152"
+     y="654"
+     class="small"
+     text-anchor="end"
+     id="text123"><tspan
+       x="1152"
+       id="tspan121">Interpret within the study area and report the units.</tspan><tspan
+       x="1152"
+       dy="18"
+       id="tspan122">Consider edge correction, sampling effort,</tspan><tspan
+       x="1152"
+       dy="18"
+       id="tspan123">and population or exposure at risk.</tspan></text>
+  <text
+     xml:space="preserve"
+     style="text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;stroke:#ff0000;stroke-width:8.31496"
+     x="356.39474"
+     y="201.0183"
+     id="text124"><tspan
+       sodipodi:role="line"
+       id="tspan124"></tspan></text>
+</svg>

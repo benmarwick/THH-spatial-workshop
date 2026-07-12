@@ -1,10 +1,11 @@
 # Modern Spatial Data Science for Archaeology
 Ben Marwick
-2026-07-11
+2026-07-12
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/benmarwick/THH-spatial-workshop/HEAD?urlpath=rstudio)
 
-Launch this workshop in RStudio on Binder to run the Quarto notebook environment with all required R packages preinstalled.
+Launch this workshop in RStudio on Binder to run the Quarto notebook
+environment with all required R packages preinstalled.
 
 ## Introduction
 
@@ -380,10 +381,12 @@ stat_chull(aes(x = x, y = y, fill = zone, group = zone),
 
 ## Step 1: Kernel Density Estimation
 
-KDE estimates the continuous intensity surface of each artefact type —
+KDE estimates the continuous intensity surface of each artefact type,
 answering *where on the landscape is each type most concentrated?* We
 use Diggle’s cross-validated bandwidth selector (`bw.diggle`) for
 data-driven smoothing.
+
+![](figures/kde.svg)
 
 ``` r
 # Helper: compute KDE and return a ggplot-ready data frame
@@ -451,12 +454,14 @@ p_kde_h + p_kde_c +
 
 ------------------------------------------------------------------------
 
-## Step 2: Ripley’s K — Testing for Global Clustering
+## Step 2: Ripley’s K: Testing for Global Clustering
 
 Ripley’s K function counts the expected number of additional artefacts
 within distance *r* of a randomly chosen artefact, compared to complete
 spatial randomness (CSR). Deviation above the Poisson expectation K(r) =
 πr² indicates clustering.
+
+![](figures/ripleys-k.svg)
 
 ``` r
 set.seed(42)
@@ -521,6 +526,8 @@ within clusters, not just large-scale grouping.
 Under CSR:
 ![G\_{\text{CSR}}(r) = 1 - e^{-\lambda \pi r^2}](https://latex.codecogs.com/svg.latex?G_%7B%5Ctext%7BCSR%7D%7D%28r%29%20%3D%201%20-%20e%5E%7B-%5Clambda%20%5Cpi%20r%5E2%7D "G_{\text{CSR}}(r) = 1 - e^{-\lambda \pi r^2}")
 
+![](figures/g-function.svg)
+
 ``` r
 set.seed(42)
 
@@ -580,6 +587,8 @@ Cross-K extends Ripley’s K to **pairs of different artefact types**:
 does type *i* attract, repel, or ignore type *j*? Values above πr²
 indicate attraction (co-occurrence); values below indicate inhibition
 (segregation). We test three ecologically meaningful pairs.
+
+![](figures/cross-k.svg)
 
 ### 4a. Core ~ Flake (Knapping Activity)
 
@@ -778,6 +787,8 @@ across all locations.
 Values above 1 at short distances indicate that nearby artefacts are
 more similar in size than chance.
 
+![](figures/mark-correlation.svg)
+
 ``` r
 set.seed(42)
 
@@ -860,7 +871,7 @@ cat(sprintf(
 
 ------------------------------------------------------------------------
 
-## Step 6: Unsupervised ML — DBSCAN
+## Step 6: Unsupervised ML: DBSCAN
 
 DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 identifies clusters as regions of high point density, without requiring
@@ -868,6 +879,8 @@ the number of clusters to be specified in advance. The key parameters
 are **ε** (neighbourhood radius) and **minPts** (minimum neighbours to
 form a core point). Points that cannot be assigned to any cluster are
 labelled noise.
+
+![](figures/dbscan.svg)
 
 ### Selecting ε with the k-NN Distance Plot
 
@@ -986,13 +999,15 @@ p_truth_db + p_dbscan +
 
 ------------------------------------------------------------------------
 
-## Step 7: Supervised ML — Random Forest Zone Classification
+## Step 7: Supervised ML: Random Forest Zone Classification
 
 DBSCAN asked “can an algorithm find zones blindly?” Supervised ML asks a
 harder question: **given only the local spatial composition around a
 point, can we predict which zone it belongs to?** A Random Forest
 classifier is trained on neighbourhood feature vectors and tested on
 held-out data.
+
+![](figures/random-forest.svg)
 
 ### Feature Engineering
 
