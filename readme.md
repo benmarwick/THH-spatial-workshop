@@ -1301,3 +1301,29 @@ to space; DBSCAN finds zones without supervision; and Random Forest
 shows that the spatial signal is strong enough to be *learned* and
 *generalised*. Modern spatial data science is a toolkit, not a single
 test.
+
+### Further Reading
+
+Baddeley, Adrian, Ege Rubak, and Rolf Turner. (2015). *Spatial Point
+Patterns: Methodology and Applications with R.* Chapman & Hall/CRC.
+
+Boehmke, Bradley, and Brandon M. Greenwell. (2019). *Hands-On Machine
+Learning with R.* Chapman & Hall/CRC
+
+Brunsdon, C., & Comber, L. (2015). *An introduction to R for spatial
+analysis and mapping.* SAGE Publications.
+
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani.
+(2021). *An Introduction to Statistical Learning: With Applications in
+R.* 2nd ed. Springer.
+
+Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. (2025).
+*Geocomputation with R.* 2nd ed. Chapman & Hall/CRC.
+
+Pebesma, Edzer, and Roger Bivand. 2023. *Spatial Data Science: With
+Applications in R.* Chapman & Hall/CRC.
+
+### Acknowledgements
+
+This workshop was developed with assistance from Claude Sonnet 4.6,
+Gemini 3.1 Pro, Kimi 2.6, and GPT 5.6.
