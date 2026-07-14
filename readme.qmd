@@ -573,7 +573,7 @@ ggplot(env_hf_df, aes(x = r)) +
   geom_ribbon(aes(ymin = lo, ymax = hi), fill = "grey80", alpha = 0.7) +
   geom_line(aes(y = obs),  colour = "#E41A1C", linewidth = 1,   linetype = "solid") +
   geom_line(aes(y = theo), colour = "red",     linewidth = 0.8, linetype = "dashed") +
-  annotate("text", x = max(env_hf_df$r) * 0.55, y = max(env_hf_df$hi) * 0.88,
+  annotate("text", x = max(env_hf_df$r) * 0.55, y = max(env_hf_df$hi) * 0.68,
            label = sprintf("MAD test  p = %.4f", mad_hf$p.value),
            size = 3.8) +
   labs(title    = "Cross-K: Handaxe ~ Flake",

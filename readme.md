@@ -1,6 +1,6 @@
 # Modern Spatial Data Science for Archaeology
 Ben Marwick
-2026-07-12
+2026-07-14
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/benmarwick/THH-spatial-workshop/HEAD?urlpath=rstudio)
 
@@ -667,7 +667,7 @@ ggplot(env_hf_df, aes(x = r)) +
   geom_ribbon(aes(ymin = lo, ymax = hi), fill = "grey80", alpha = 0.7) +
   geom_line(aes(y = obs),  colour = "#E41A1C", linewidth = 1,   linetype = "solid") +
   geom_line(aes(y = theo), colour = "red",     linewidth = 0.8, linetype = "dashed") +
-  annotate("text", x = max(env_hf_df$r) * 0.55, y = max(env_hf_df$hi) * 0.88,
+  annotate("text", x = max(env_hf_df$r) * 0.55, y = max(env_hf_df$hi) * 0.68,
            label = sprintf("MAD test  p = %.4f", mad_hf$p.value),
            size = 3.8) +
   labs(title    = "Cross-K: Handaxe ~ Flake",
@@ -1307,7 +1307,7 @@ test.
 Baddeley, Adrian, Ege Rubak, and Rolf Turner. (2015). *Spatial Point
 Patterns: Methodology and Applications with R.* Chapman & Hall/CRC.
 
-Boehmke, Bradley, and Brandon M. Greenwell. (2019). *Hands-On Machine
+Boehmke, Brad, and Brandon M. Greenwell. (2019). *Hands-On Machine
 Learning with R.* Chapman & Hall/CRC
 
 Brunsdon, C., & Comber, L. (2015). *An introduction to R for spatial
@@ -1327,3 +1327,7 @@ Applications in R.* Chapman & Hall/CRC.
 
 This workshop was developed with assistance from Claude Sonnet 4.6,
 Gemini 3.1 Pro, Kimi 2.6, and GPT 5.6.
+
+How did modern humans make their way into mainland Southeast Asia? New
+data on the Paleolithic from excavations in Myanmar, Vietnam, and
+Australia
