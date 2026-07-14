@@ -1328,6 +1328,4 @@ Applications in R.* Chapman & Hall/CRC.
 This workshop was developed with assistance from Claude Sonnet 4.6,
 Gemini 3.1 Pro, Kimi 2.6, and GPT 5.6.
 
-How did modern humans make their way into mainland Southeast Asia? New
-data on the Paleolithic from excavations in Myanmar, Vietnam, and
-Australia
+
