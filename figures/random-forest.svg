@@ -7,7 +7,7 @@
    aria-labelledby="svg-title svg-desc"
    version="1.1"
    id="svg103"
-   sodipodi:docname="improved_random_forest.svg"
+   sodipodi:docname="random-forest.svg"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -22,13 +22,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.45022242"
-     inkscape:cx="569.7184"
-     inkscape:cy="265.42436"
-     inkscape:window-width="1384"
-     inkscape:window-height="606"
-     inkscape:window-x="88"
-     inkscape:window-y="71"
+     inkscape:zoom="1.1142907"
+     inkscape:cx="609.35624"
+     inkscape:cy="363.45991"
+     inkscape:window-width="1512"
+     inkscape:window-height="945"
+     inkscape:window-x="0"
+     inkscape:window-y="37"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg103" />
   <title
@@ -340,10 +340,10 @@
        xml:space="preserve"><tspan
          x="203"
          y="266"
-         id="tspan1">bootstrap sample 1 · 6 </tspan><tspan
+         id="tspan30">bootstrap sample 1 · 6 </tspan><tspan
          x="203"
          y="279.74999"
-         id="tspan2">draws</tspan></text>
+         id="tspan31">draws</tspan></text>
     <g
        class="a"
        id="g24">
@@ -400,10 +400,10 @@
        xml:space="preserve"><tspan
          x="203"
          y="341"
-         id="tspan3">bootstrap sample 2 · 6 </tspan><tspan
+         id="tspan32">bootstrap sample 2 · 6 </tspan><tspan
          x="203"
          y="354.74999"
-         id="tspan4">draws</tspan></text>
+         id="tspan33">draws</tspan></text>
     <g
        class="a"
        id="g28">
@@ -460,10 +460,10 @@
        xml:space="preserve"><tspan
          x="203"
          y="416"
-         id="tspan7">bootstrap sample 3 · 6 </tspan><tspan
+         id="tspan34">bootstrap sample 3 · 6 </tspan><tspan
          x="203"
          y="429.74999"
-         id="tspan8">draws</tspan></text>
+         id="tspan35">draws</tspan></text>
     <g
        class="a"
        id="g35">
@@ -525,16 +525,16 @@
      xml:space="preserve"><tspan
        x="58"
        y="526"
-       id="tspan9">Rows can repeat; unselected rows are out-of-</tspan><tspan
+       id="tspan36">Rows can repeat; unselected rows are out-of-</tspan><tspan
        x="58"
        y="541.62502"
-       id="tspan14">bagfor that tree. Out-of-bag predictions can </tspan><tspan
+       id="tspan37">bagfor that tree. Out-of-bag predictions can </tspan><tspan
        x="58"
        y="557.25002"
-       id="tspan15">estimate predictive error without a separate </tspan><tspan
+       id="tspan38">estimate predictive error without a separate </tspan><tspan
        x="58"
        y="572.87502"
-       id="tspan16">validation set.</tspan></text>
+       id="tspan39">validation set.</tspan></text>
   <!-- 2 -->
   <circle
      cx="444"
@@ -933,10 +933,10 @@
        xml:space="preserve"><tspan
          x="456"
          y="466"
-         id="tspan17">Three shallow trees shown; real forests use many </tspan><tspan
+         id="tspan40">Three shallow trees shown; real forests use many </tspan><tspan
          x="456"
          y="479.74999"
-         id="tspan18">deeper trees.</tspan></text>
+         id="tspan41">deeper trees.</tspan></text>
   </g>
   <rect
      x="440"
@@ -955,16 +955,16 @@
      xml:space="preserve"><tspan
        x="458"
        y="526"
-       id="tspan19">Bootstrap samples and fresh feature subsets </tspan><tspan
+       id="tspan42">Bootstrap samples and fresh feature subsets </tspan><tspan
        x="458"
        y="541.62502"
-       id="tspan20">diversify the trees and reduce correlated </tspan><tspan
+       id="tspan45">diversify the trees and reduce correlated </tspan><tspan
        x="458"
        y="557.25002"
-       id="tspan21">errors. Classical Random Forest trees are </tspan><tspan
+       id="tspan46">errors. Classical Random Forest trees are </tspan><tspan
        x="458"
        y="572.87502"
-       id="tspan22">usually unpruned.</tspan></text>
+       id="tspan47">usually unpruned.</tspan></text>
   <!-- 3 -->
   <circle
      cx="844"
@@ -1150,12 +1150,12 @@
        xml:space="preserve"><tspan
          x="1118.5"
          y="337"
-         id="tspan23">most<tspan
+         id="tspan48">most<tspan
    y="337"
-   id="tspan24"> </tspan></tspan><tspan
+   id="tspan49"> </tspan></tspan><tspan
          x="1118.5"
          y="350.74999"
-         id="tspan25">votes</tspan></text>
+         id="tspan50">votes</tspan></text>
     <text
        x="1118.5"
        y="355"
@@ -1204,16 +1204,16 @@
      xml:space="preserve"><tspan
        x="858"
        y="526"
-       id="tspan26">Classification: use the class receiving the </tspan><tspan
+       id="tspan51">Classification: use the class receiving the most </tspan><tspan
        x="858"
        y="541.62502"
-       id="tspan27">mostvotes. Regression: average numerical </tspan><tspan
+       id="tspan52">votes. Regression: average numerical </tspan><tspan
        x="858"
        y="557.25002"
-       id="tspan28">predictions. Some implementations average </tspan><tspan
+       id="tspan53">predictions. Some implementations average </tspan><tspan
        x="858"
        y="572.87502"
-       id="tspan29">class probabilities.</tspan></text>
+       id="tspan54">class probabilities.</tspan></text>
   <!-- Footer -->
   <line
      x1="48"

@@ -22,13 +22,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.43588921"
-     inkscape:cx="342.97706"
-     inkscape:cy="344.12414"
-     inkscape:window-width="1448"
-     inkscape:window-height="571"
+     inkscape:zoom="1.3602567"
+     inkscape:cx="848.36931"
+     inkscape:cy="455.06118"
+     inkscape:window-width="1512"
+     inkscape:window-height="945"
      inkscape:window-x="0"
-     inkscape:window-y="38"
+     inkscape:window-y="37"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg82" />
   <title
@@ -577,20 +577,13 @@
        x="622.32776"
        dy="17"
        id="tspan49">type A</tspan></text>
-  <line
-     x1="641"
-     y1="446"
-     x2="688"
-     y2="432"
-     stroke="#52606d"
-     stroke-width="1.5"
-     id="line49" />
   <text
-     x="613"
-     y="448"
+     x="661.52026"
+     y="450.94061"
      class="direct-label"
      fill="#52606d"
-     id="text50">outside r</text>
+     id="text50"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:13px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif">outside r</text>
   <rect
      x="515"
      y="458"
@@ -638,8 +631,8 @@
        y="561.5"
        id="tspan90"><tspan
          x="468"
-         dy="0 0 0 0 0 0 0 0 0 0 0 0"
-         id="tspan91">correction.Evaluate across many</tspan></tspan><tspan
+         dy="0 0 0 0 0 0 0 0 0 0 0 0 0"
+         id="tspan91">correction. Evaluate across many</tspan></tspan><tspan
        sodipodi:role="line"
        x="468"
        y="580.25"
@@ -847,12 +840,6 @@
        x="886"
        dy="17"
        id="tspan72">cross-type neighbors</tspan></text>
-  <path
-     d="M868 564 H878"
-     stroke="#52606d"
-     stroke-width="2.5"
-     stroke-dasharray="4 3"
-     id="path72" />
   <text
      x="886"
      y="569"

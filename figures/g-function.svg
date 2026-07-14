@@ -22,15 +22,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.527892"
-     inkscape:cx="774.77969"
-     inkscape:cy="304.03946"
+     inkscape:zoom="1.2354784"
+     inkscape:cx="305.95436"
+     inkscape:cy="612.31343"
      inkscape:window-width="1424"
      inkscape:window-height="876"
      inkscape:window-x="33"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g67" />
+     inkscape:current-layer="svg97" />
   <title
      id="svg-title">How the nearest-neighbor G-function describes spatial point patterns</title>
   <desc
@@ -95,6 +95,18 @@
          rx="8"
          id="rect4" />
     </clipPath>
+    <marker
+       id="orange-arrowhead-5"
+       markerWidth="7"
+       markerHeight="7"
+       refX="6"
+       refY="3.5"
+       orient="auto">
+      <path
+         d="M 0,0 7,3.5 0,7 Z"
+         fill="#d55e00"
+         id="path2-8" />
+    </marker>
   </defs>
   <rect
      width="1200"
@@ -209,11 +221,11 @@
          y2="261"
          id="line11" />
       <line
-         x1="122"
-         y1="258"
-         x2="146"
-         y2="288"
-         id="line12" />
+         x1="113.62307"
+         y1="257.83139"
+         x2="88.62307"
+         y2="275.83139"
+         id="line11-1" />
       <line
          x1="151"
          y1="297"
@@ -384,22 +396,16 @@
          id="circle41" />
     </g>
   </g>
-  <path
-     d="M100 357 C119 345,137 329,155 312"
-     fill="none"
-     stroke="#d55e00"
-     stroke-width="1.5"
-     marker-end="url(#orange-arrowhead)"
-     id="path42" />
   <text
-     x="86"
-     y="371"
+     x="65.764923"
+     y="358.04956"
      class="direct-label"
      fill="#b34e00"
-     id="text43"><tspan
-       x="86"
+     id="text43"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:13px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif"><tspan
+       x="65.764923"
        id="tspan42">one directed distance</tspan><tspan
-       x="86"
+       x="65.764923"
        dy="17"
        id="tspan43">from each point</tspan></text>
   <text
@@ -448,9 +454,10 @@
      id="text48">Ask which distances are ≤ r</text>
   <text
      x="440"
-     y="187"
+     y="189"
      class="body"
-     id="text50"><tspan
+     id="text50"
+     style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:15px;line-height:normal;font-family:system-ui, '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif"><tspan
        x="440"
        id="tspan48">Increase r and record the fraction</tspan><tspan
        x="440"
@@ -882,12 +889,6 @@
        x="870"
        dy="16"
        id="tspan90">short nearest-neighbor distances</tspan></text>
-  <path
-     d="M852 557 H862"
-     stroke="#52606d"
-     stroke-width="2.5"
-     stroke-dasharray="4 3"
-     id="path90" />
   <text
      x="870"
      y="561"

@@ -7,7 +7,7 @@
    aria-labelledby="title desc"
    version="1.1"
    id="svg76"
-   sodipodi:docname="improved_ripleys_k.svg"
+   sodipodi:docname="ripleys-k.svg"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -22,13 +22,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.46617164"
-     inkscape:cx="481.58227"
-     inkscape:cy="352.87432"
-     inkscape:window-width="1232"
-     inkscape:window-height="592"
-     inkscape:window-x="282"
-     inkscape:window-y="44"
+     inkscape:zoom="0.7908275"
+     inkscape:cx="604.43017"
+     inkscape:cy="440.04539"
+     inkscape:window-width="1512"
+     inkscape:window-height="945"
+     inkscape:window-x="0"
+     inkscape:window-y="37"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg76" />
   <title
@@ -473,20 +473,20 @@
      xml:space="preserve"><tspan
        x="458"
        y="527"
-       id="tspan1">K(r) summarizes neighboring pairs within </tspan><tspan
+       id="tspan11">K(r) summarizes neighboring pairs within </tspan><tspan
        x="458"
        y="544.49998"
-       id="tspan2">r, after adjustment for overall point </tspan><tspan
+       id="tspan12">r, after adjustment for overall point </tspan><tspan
        x="458"
        y="561.99998"
-       id="tspan6">intensity. <tspan
+       id="tspan14">intensity. <tspan
    style="font-size:12.5px;fill:#52606d"
-   id="tspan3">Larger values mean more </tspan></tspan><tspan
+   id="tspan13">Larger values mean more </tspan></tspan><tspan
        x="458"
        y="579.49998"
-       id="tspan8"><tspan
+       id="tspan16"><tspan
          style="font-size:12.5px;fill:#52606d"
-         id="tspan7">cumulative close pairs.</tspan></tspan></text>
+         id="tspan15">cumulative close pairs.</tspan></tspan></text>
   <!-- 3 -->
   <circle
      cx="844"
@@ -679,12 +679,6 @@
        x="870"
        dy="16"
        id="tspan66">neighboring pairs at those distances</tspan></text>
-  <path
-     d="M852 559 H862"
-     stroke="#52606d"
-     stroke-width="2.5"
-     stroke-dasharray="4 3"
-     id="path66" />
   <text
      x="870"
      y="563"

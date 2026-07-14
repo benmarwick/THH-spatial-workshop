@@ -1030,7 +1030,7 @@ This workshop has moved through a complete modern spatial data science workflow 
 
 Baddeley, Adrian, Ege Rubak, and Rolf Turner. (2015). _Spatial Point Patterns: Methodology and Applications with R._ Chapman & Hall/CRC.
 
-Boehmke, Bradley, and Brandon M. Greenwell. (2019). _Hands-On Machine Learning with R._ Chapman & Hall/CRC
+Boehmke, Brad, and Brandon M. Greenwell. (2019). _Hands-On Machine Learning with R._ Chapman & Hall/CRC
 
 Brunsdon, C., & Comber, L. (2015). _An introduction to R for spatial analysis and mapping._ SAGE Publications.
 
@@ -1045,3 +1045,5 @@ Pebesma, Edzer, and Roger Bivand. 2023. _Spatial Data Science: With Applications
 
 This workshop was developed with assistance from Claude Sonnet 4.6, Gemini 3.1 Pro, Kimi 2.6, and GPT 5.6.
 
+How did modern humans make their way into mainland Southeast Asia? 
+New data on the Paleolithic from excavations in Myanmar, Vietnam, and Australia

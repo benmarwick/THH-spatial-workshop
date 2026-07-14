@@ -7,7 +7,7 @@
    aria-labelledby="svg-title svg-desc"
    version="1.1"
    id="svg82"
-   sodipodi:docname="improved_mark_correlation.svg"
+   sodipodi:docname="mark-correlation.svg"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -22,13 +22,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.39618413"
-     inkscape:cx="535.10473"
-     inkscape:cy="368.51552"
-     inkscape:window-width="1352"
-     inkscape:window-height="515"
-     inkscape:window-x="166"
-     inkscape:window-y="58"
+     inkscape:zoom="1.0519657"
+     inkscape:cx="518.07775"
+     inkscape:cy="385.46886"
+     inkscape:window-width="1512"
+     inkscape:window-height="916"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg82" />
   <title
@@ -511,19 +511,12 @@
        class="cap"
        id="line49" />
     <line
-       x1="484"
-       y1="294"
-       x2="509"
-       y2="315"
+       x1="487.64923"
+       y1="297.09894"
+       x2="503.88217"
+       y2="310.73462"
        class="other"
        id="line50" />
-    <line
-       x1="668"
-       y1="435"
-       x2="709"
-       y2="449"
-       class="other"
-       id="line51" />
     <rect
        x="470"
        y="408"
@@ -739,12 +732,12 @@
      id="text71"
      style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">observed kₘₘ(r)</text>
   <line
-     x1="1075.3068"
-     y1="411.08142"
-     x2="1026.7144"
-     y2="357.28271"
+     x1="1067.0243"
+     y1="409.20978"
+     x2="1051.3917"
+     y2="356.78061"
      stroke="#52606d"
-     stroke-width="2.60316"
+     stroke-width="1.96454"
      id="line71" />
   <text
      x="902.34729"
@@ -754,17 +747,18 @@
      id="text72"
      style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:12.5px;line-height:normal;font-family:system-ui, sans-serif">random-marking reference = 1</text>
   <rect
-     x="899.479"
-     y="373.19159"
-     width="128"
-     height="25"
-     rx="6"
+     x="899.48962"
+     y="373.20221"
+     width="133.61278"
+     height="24.978745"
+     rx="6.2630987"
      fill="#ffffff"
      fill-opacity="0.92"
      stroke="#c5d0da"
-     id="rect72" />
+     id="rect72"
+     style="stroke-width:1.02126" />
   <text
-     x="963.479"
+     x="965.479"
      y="390.19159"
      class="small"
      text-anchor="middle"
@@ -794,12 +788,6 @@
        x="870"
        dy="16"
        id="tspan74">pairwise mark products at those distances</tspan></text>
-  <path
-     d="M852 559 H862"
-     stroke="#52606d"
-     stroke-width="2.5"
-     stroke-dasharray="4 3"
-     id="path74" />
   <text
      x="870"
      y="563"
